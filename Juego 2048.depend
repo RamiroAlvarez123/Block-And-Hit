@@ -1,8 +1,8 @@
 # depslib dependency file v1.0
-1729287753 source:c:\users\ramiro alvarez\onedrive\escritorio\juego 2048\main.cpp
+1730223815 source:c:\users\ramiro alvarez\onedrive\escritorio\juego 2048\main.cpp
+	"Login.h"
 	<iostream>
 	<SFML/Graphics.hpp>
-	<iostream>
 
 1728948819 c:\users\ramiro alvarez\onedrive\escritorio\juego 2048\sfml-2.6.1\include\sfml\graphics.hpp
 	<SFML/Window.hpp>
@@ -610,4 +610,36 @@
 1721413167 c:\users\ramiro alvarez\onedrive\escritorio\juego 2048\box2d\include\box2d\b2_wheel_joint.h
 	"b2_api.h"
 	"b2_joint.h"
+
+1730062665 source:c:\users\ramiro alvarez\onedrive\escritorio\juego 2048\src\login.cpp
+	<iostream>
+	<SFML/Graphics.hpp>
+	<string>
+
+1730224188 c:\users\ramiro alvarez\onedrive\escritorio\juego 2048\login.h
+	<SFML/Graphics.hpp>
+	<string>
+
+1730224177 source:c:\users\ramiro alvarez\onedrive\escritorio\juego 2048\login.cpp
+	"Login.h"
+	<iostream>
+	<SFML/Graphics.hpp>
+	<SFML/Window.hpp>
+
+1730226420 source:c:\users\ramiro alvarez\onedrive\escritorio\juego 2048\archivologin.cpp
+	"ArchivoLogin.h"
+	"usuario.h"
+
+1730223859 c:\users\ramiro alvarez\onedrive\escritorio\juego 2048\archivologin.h
+	"usuario.h"
+	<string>
+
+1730227385 c:\users\ramiro alvarez\onedrive\escritorio\juego 2048\usuario.h
+	<string>
+
+1730227817 source:c:\users\ramiro alvarez\onedrive\escritorio\juego 2048\usuario.cpp
+	<iostream>
+	"Usuario.h"
+
+1730296623 source:c:\users\ramiro alvarez\onedrive\escritorio\juego 2048\ventanas.cpp
 

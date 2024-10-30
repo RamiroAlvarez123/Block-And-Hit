@@ -13,6 +13,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add directory="include" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -22,6 +23,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add directory="include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -42,7 +44,22 @@
 			<Add directory="SFML-2.6.1/lib" />
 			<Add directory="box2d/lib" />
 		</Linker>
+		<Unit filename="ArchivoLogin.cpp" />
+		<Unit filename="ArchivoLogin.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
 		<Unit filename="Juego 2048.cbp" />
+		<Unit filename="Login.cpp" />
+		<Unit filename="Login.h" />
+		<Unit filename="Usuario.cpp" />
+		<Unit filename="Usuario.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="Ventanas.cpp" />
+		<Unit filename="Ventanas.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="include/Login.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />

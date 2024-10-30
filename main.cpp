@@ -1,3 +1,5 @@
+
+#include "Login.h"
 #include <iostream>
 #include <SFML/Graphics.hpp>
 
@@ -6,7 +8,9 @@ sf::Sprite background;
 
 int main(){
 
-    /** CARGA DE LA IMAGEN DE FONDO **/
+
+    Login ingresarUsuario;
+    ingresarUsuario.Ingresar();
 
     // carga la imagen con el path dado
     if(!backgroundTexture.loadFromFile("imgs/interfaz.png")){
