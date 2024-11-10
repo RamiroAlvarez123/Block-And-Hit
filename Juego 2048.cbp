@@ -2,7 +2,7 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="Juego 2048" />
+		<Option title="BaH" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
@@ -34,33 +34,65 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 			<Add directory="SFML-2.6.1/include" />
-			<Add directory="box2d/include" />
+			<Add directory="C:/Users/Ramiro Alvarez/OneDrive/Escritorio/Block and Hit/tmxlite/tmxlite/include" />
+			<Add directory="box2d-2.4.2/include" />
 		</Compiler>
 		<Linker>
 			<Add library="sfml-system" />
 			<Add library="sfml-window" />
 			<Add library="sfml-graphics" />
 			<Add library="box2d" />
+			<Add library="sfml-audio" />
+			<Add library="sfml-network" />
 			<Add directory="SFML-2.6.1/lib" />
-			<Add directory="box2d/lib" />
+			<Add directory="box2d-2.4.2/lib" />
 		</Linker>
 		<Unit filename="ArchivoLogin.cpp" />
 		<Unit filename="ArchivoLogin.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
+		<Unit filename="GlobalContactListener.cpp" />
+		<Unit filename="GlobalContactListener.h" />
 		<Unit filename="Juego 2048.cbp" />
-		<Unit filename="Login.cpp" />
-		<Unit filename="Login.h" />
+		<Unit filename="Juego.cpp" />
+		<Unit filename="Juego.h" />
+		<Unit filename="Obstacle.cpp" />
+		<Unit filename="Obstacle.h" />
+		<Unit filename="Player.cpp" />
+		<Unit filename="Player.h" />
+		<Unit filename="Scene.cpp" />
+		<Unit filename="Scene.h" />
+		<Unit filename="SceneManager.cpp" />
+		<Unit filename="SceneManager.h" />
+		<Unit filename="Structures.cpp" />
+		<Unit filename="Structures.h" />
+		<Unit filename="Terrain.cpp" />
+		<Unit filename="Terrain.h" />
+		<Unit filename="TiledMap.cpp" />
+		<Unit filename="TiledMap.h" />
 		<Unit filename="Usuario.cpp" />
 		<Unit filename="Usuario.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
-		<Unit filename="Ventanas.cpp" />
-		<Unit filename="Ventanas.h">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="include/Login.h" />
+		<Unit filename="constants.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="tmxlite/tmxlite/src/FreeFuncs.cpp" />
+		<Unit filename="tmxlite/tmxlite/src/ImageLayer.cpp" />
+		<Unit filename="tmxlite/tmxlite/src/LayerGroup.cpp" />
+		<Unit filename="tmxlite/tmxlite/src/Map.cpp" />
+		<Unit filename="tmxlite/tmxlite/src/Object.cpp" />
+		<Unit filename="tmxlite/tmxlite/src/ObjectGroup.cpp" />
+		<Unit filename="tmxlite/tmxlite/src/ObjectTypes.cpp" />
+		<Unit filename="tmxlite/tmxlite/src/Property.cpp" />
+		<Unit filename="tmxlite/tmxlite/src/TileLayer.cpp" />
+		<Unit filename="tmxlite/tmxlite/src/Tileset.cpp" />
+		<Unit filename="tmxlite/tmxlite/src/detail/pugiconfig.hpp" />
+		<Unit filename="tmxlite/tmxlite/src/detail/pugixml.cpp" />
+		<Unit filename="tmxlite/tmxlite/src/detail/pugixml.hpp" />
+		<Unit filename="tmxlite/tmxlite/src/miniz.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="tmxlite/tmxlite/src/miniz.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

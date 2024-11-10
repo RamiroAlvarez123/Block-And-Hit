@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="100" height="30" tilewidth="16" tileheight="16" infinite="0" nextlayerid="10" nextobjectid="61">
+ <tileset firstgid="1" name="Tileset" tilewidth="16" tileheight="16" tilecount="48" columns="8">
+  <image source="tiles/Tileset.png" width="128" height="96"/>
+ </tileset>
+ <tileset firstgid="49" source="Decors.tsx"/>
+ <tileset firstgid="147" source="tileset 2.tsx"/>
+ <imagelayer id="5" name="Cielo" offsetx="-0.666667" offsety="-1.33333" repeatx="1">
+  <image source="../imgs/cielo.jpg" width="768" height="432"/>
+ </imagelayer>
+ <imagelayer id="2" name="Montaña" offsetx="2.33" offsety="229.334" repeatx="1">
+  <image source="../imgs/Montania.png" width="320" height="192"/>
+ </imagelayer>
+ <imagelayer id="4" name="Extension" offsetx="-0.6667" offsety="418" repeatx="1">
+  <image source="../imgs/Extension.png" width="433" height="148"/>
+ </imagelayer>
+ <layer id="1" name="Capa de patrones 1" width="100" height="30">
+  <data encoding="base64" compression="zlib">
+   eJztmMtO3DAUhhOQZkSRQICERJFguumw5raeQhesKGVNW3ZU3LaIy2I0INFKBcFb8Qh9HH6rOZqDmzi2k9gJ+Jc+JZPrsf+cY3uiKKgsTYGJhEnQSphMaEvn+XW0DSpX5Anvb/KixbZ0vsWua3uI9y1IeEK5QN8973PuCeUQXR9UjYQn3Avq83b0f2602X5QdaI84WMIjR+UF/x38KN6kSeyF/J4QtcE1UcffAcQ9ELBj3rJpx9/wB249xiDKw3AtcZ1rvyIwUgOo45i8aEH8JjsD9jxATsu5MqPMfAuh3FHsbiWaDtf79F6g68N+dzLhcScbzqHGekeyqmm5c2s9Fu0XZ7XTkQvveH/nzRJTfVI53skgopLzom3rKbmTJY6yXYZrIBVsAbWfQXUcBXNlaVk2wOfwAbYBJ8LPrdKVbV22YqH+BL5sQ2+gB3wFex6i0gtnbWMTv0apBxbAIvRsGYUlU2ukB974Bv4Dn6A/ZJishHNR+Q5sJDOWka1nlH1+UfQjYZ94kP07kNwBI7BCTj1FpFaunPHNC+FVH1eJz+ewDm4AJfgyuJZc+A9mDe8T5UPZcuHHyZ1i979F9yCX+B3lF5fs6RT02UtGjy/TNU9P0zHxLT6SzVdrtlZx4W6RYIuIFWfo209tK3X+Tfd1Bafj/F9VfuzZDomprUnq96o6lAd/bARfZ9Eh52zqcOmY2JZ7amrH3l1Om1t4rPO8Xf/jO0RzziI3ZNTrzLnwnWdJ/N3n8X2dAvebwuP38Qr3ft8fl9N98PWK5NnVg3e2ce7+4ih/5r9oGM3lvfZ8gwNpraq
+  </data>
+ </layer>
+ <objectgroup id="6" name="Capa de Objetos 1">
+  <object id="1" name="Terrain" x="0.75" y="368.5" width="126.5" height="45.5"/>
+  <object id="4" name="Terrain" x="1" y="256.5" width="14.5" height="111"/>
+  <object id="5" name="Terrain" x="194" y="369.333" width="44" height="109.333"/>
+  <object id="6" name="Terrain" x="273.333" y="353.333" width="141.333" height="45.3333"/>
+  <object id="7" name="Terrain" x="480.167" y="353.333" width="16" height="125.333"/>
+  <object id="8" name="Terrain" x="530.667" y="336" width="42.6667" height="9.33333"/>
+  <object id="9" name="Terrain" x="594.667" y="304.667" width="42.6667" height="9.33333"/>
+  <object id="10" name="Terrain" x="400.167" y="160.667" width="158.5" height="46"/>
+  <object id="11" name="Terrain" x="609.333" y="192.667" width="45.3334" height="14.6667"/>
+  <object id="12" name="Terrain" x="689.333" y="208.667" width="45.3334" height="14.6667"/>
+  <object id="13" name="Terrain" x="768.667" y="240.667" width="45.3334" height="14.6667"/>
+  <object id="14" name="Terrain" x="704.333" y="288.333" width="174.667" height="46"/>
+  <object id="15" name="Terrain" x="961.333" y="305.333" width="44" height="174"/>
+  <object id="16" name="Terrain" x="1074" y="288.667" width="44" height="93.333"/>
+  <object id="17" name="Terrain" x="1074" y="416.667" width="44" height="63.333"/>
+  <object id="18" name="Terrain" x="1186" y="417.667" width="44" height="63.333"/>
+  <object id="22" name="Terrain" x="1296" y="400">
+   <polygon points="0,0 -15.3333,0 -15.3333,-15.6667 63.6667,-15.6667 63.6667,-0.333333 47.3333,-0.333333 47.6667,79 0,79.6667"/>
+  </object>
+  <object id="23" name="Terrain" x="1392.67" y="368.667" width="47" height="31"/>
+  <object id="26" name="Terrain" x="1424" y="336.5" width="15.5" height="15"/>
+  <object id="27" name="Terrain" x="1392" y="288.25" width="15.5" height="15"/>
+  <object id="28" name="Terrain" x="1344" y="256.25" width="15.5" height="15"/>
+  <object id="29" name="Terrain" x="1296" y="224.5" width="15.5" height="15"/>
+  <object id="30" name="Terrain" x="1344" y="192.5" width="15.5" height="15"/>
+  <object id="37" name="Terrain" x="1409.33" y="176">
+   <polygon points="-1,0 190.667,0.333333 190.667,46.3333 29,46.6667 -1,15"/>
+  </object>
+  <object id="38" name="Terrain" x="1600" y="95.6667">
+   <polygon points="0,0 -176,0.333333 -270,-95.3333 -0.333333,-95.6667"/>
+  </object>
+  <object id="39" name="Spike" x="1072.25" y="282.75" width="47.25" height="5.75"/>
+  <object id="40" name="Spike" x="1216" y="410.818" width="16.0909" height="5.27273"/>
+  <object id="41" name="Spike" x="1296.13" y="378.875" width="15.875" height="5.125"/>
+  <object id="42" name="Spike" x="1344.06" y="378.813" width="15.875" height="5.125"/>
+  <object id="43" name="Player" x="63.5" y="242.25">
+   <point/>
+  </object>
+  <object id="46" name="Enemy" x="1494" y="159.5">
+   <point/>
+  </object>
+  <object id="47" name="Enemy" x="836.5" y="273.5">
+   <point/>
+  </object>
+  <object id="49" name="Enemy" x="377.333" y="340">
+   <point/>
+  </object>
+  <object id="50" name="Spike" x="0.333333" y="464.667" width="192.667" height="14.6667"/>
+  <object id="51" name="Spike" x="239.333" y="447.333" width="240" height="32"/>
+  <object id="53" name="Spike" x="497.667" y="443" width="462.333" height="36.6667"/>
+  <object id="54" name="Spike" x="1007.17" y="449" width="65.333" height="31"/>
+  <object id="55" name="Spike" x="1119.33" y="464.167" width="65.333" height="15.3333"/>
+  <object id="56" name="Spike" x="1230.67" y="453" width="65.333" height="26.3333"/>
+  <object id="57" name="Spike" x="1344.67" y="453.167" width="255" height="26.3333"/>
+  <object id="58" name="Enemy" x="441.5" y="142">
+   <point/>
+  </object>
+  <object id="60" name="Finish" x="1584" y="96" width="15" height="80"/>
+ </objectgroup>
+</map>
