@@ -12,7 +12,10 @@ private:
     b2World& _world;
     TiledMap* _tiledMap;
 
-    int _lifes = 5;
+    sf::Sound _sound;
+	sf::SoundBuffer _buffer;
+
+    int _lifes = 4;
 	sf::Texture _lifesTexture;
 	sf::Sprite _lifesSprite;
 
@@ -39,6 +42,7 @@ public:
     void generateMap();
     void generateStructures();
     void spawnPlayer();
+    void respawn();
     sf::Vector2f getCameraPosition();
 
 };
