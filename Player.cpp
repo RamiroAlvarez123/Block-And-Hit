@@ -88,8 +88,7 @@ void Player::cmd()
 	}
 
 	if (!_didJump) {
-		if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Space) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up))&& _onGround) {
-			std::cout<<"asdasd";
+		if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Up))&& _onGround) {
 			_didJump = true;
 			_isJumping = true;
 			isMoving = true;
@@ -144,6 +143,7 @@ void Player::update()
 		_sprite->setTextureRect({ 64, 0 , 32, 64 });
 		break;
 	case PlayerState::Move:
+
 		_frame += 0.2f;
 
 		if (_frame > 3) {
@@ -170,7 +170,6 @@ void Player::update()
 	if (_sprite->getPosition().y >= 700) {
 		_death = true;
 	}
-
 }
 
 void Player::render(sf::RenderWindow& window) {
@@ -208,13 +207,18 @@ void Player::onBeginContact(b2Fixture* self, b2Fixture* other)
 	if (_spikeFixture == self && data->type == FixtureDataType::Spike) {
 		_death = true;
 	}
+	if (data->type == FixtureDataType::Finish) {
+		_gameWin = true;
+	}
 	else if (_groundFixture == self && (data->type == FixtureDataType::GroundTile)) {
 		_onGround = true;
 	}
 	else if (self == _topFixture && (data->type == FixtureDataType::GroundTile)) {
 		_onRoof = true;
 	}
-
+    else if(!_isBlocking &&(data->type == FixtureDataType::Enemy)) {
+        _death = true;
+    }
 }
 
 void Player::onEndContact(b2Fixture* self, b2Fixture* other)
@@ -228,11 +232,14 @@ void Player::onEndContact(b2Fixture* self, b2Fixture* other)
 	else if (self == _topFixture && data->type == FixtureDataType::GroundTile) {
 		_onRoof = false;
 	}
-	else if (_groundFixture == self && (data->type == FixtureDataType::GroundTile || data->type == FixtureDataType::DestroyableTile)) {
+	else if (_groundFixture == self && (data->type == FixtureDataType::GroundTile)) {
 		_onGround = false;
 	}
-	else if (self == _topFixture && data->type == FixtureDataType::GroundTile) {
-		_onRoof = false;
+	else if(_isBlocking && (data->type == FixtureDataType::Enemy)){
+        _buffer.loadFromFile("sounds/hit.wav");
+        _sound.setBuffer(_buffer);
+        _sound.play();
+
 	}
 
 
@@ -240,4 +247,8 @@ void Player::onEndContact(b2Fixture* self, b2Fixture* other)
 
 bool Player::isDead() {
 	return _death;
+}
+
+bool Player::isGameWin(){
+    return _gameWin;
 }

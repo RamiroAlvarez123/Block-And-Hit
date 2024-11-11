@@ -30,6 +30,7 @@ private:
 	bool _isWalking = false;
 	bool _isDucking = false;
 	bool _didJump = false;
+    bool _isBlocking = false;
 
 	b2Vec2 _velocity{ 0.0f , 0.0f };
 	float _moveSpeed = 10.0f;
@@ -42,11 +43,13 @@ private:
 
 	bool _onGround = false;
 	bool _death = false;
+	bool _gameWin = false;
 	bool _onRoof = false;
 
 	FixtureData _fixtureData;
 	b2Fixture* _groundFixture;
 	b2Fixture* _spikeFixture;
+	b2Fixture* _finishFixture;
 	b2Fixture* _rightEnemyFixture;
 	b2Fixture* _leftEnemyFixture;
 	b2Fixture* _topFixture;
@@ -65,7 +68,7 @@ public:
 
 	void drawFixture(b2Fixture* fixture, sf::RenderWindow& window, sf::Color color);
 	bool isDead();
-
+	bool isGameWin();
 	virtual void onBeginContact(b2Fixture* self, b2Fixture* other) override;
 	virtual void onEndContact(b2Fixture* self, b2Fixture* other) override;
 };

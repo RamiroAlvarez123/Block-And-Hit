@@ -1,10 +1,12 @@
 #pragma once
 #include "Structures.h"
+#include <iostream>
 
 Structures::Structures(b2World& world, tmx::Map& tiled) : _world(world), _tiled(tiled)
 {
 	spawnObstacles();
 	spawnTerrains();
+	spawnFinish();
 }
 
 Structures::~Structures()
@@ -56,6 +58,7 @@ void Structures::spawnObstacles()
 
 void Structures::spawnTerrains()
 {
+
 	const auto& layers = _tiled.getLayers();
 	for (const auto& layer : layers)
 	{
@@ -83,10 +86,42 @@ void Structures::spawnTerrains()
 						_terrains.push_back(new Terrain(_world, b2Vec2(position.x, position.y), object.getPoints(), shape));
 					}
 				}
+				}
 			}
 		}
 	}
+
+void Structures::spawnFinish()
+{
+const auto& layers = _tiled.getLayers();
+	for (const auto& layer : layers)
+	{
+		if (layer->getType() == tmx::Layer::Type::Object)
+		{
+			const auto& objectLayer = layer->getLayerAs<tmx::ObjectGroup>();
+			const auto& objects = objectLayer.getObjects();
+			for (const auto& object : objects)
+			{
+				// Access object properties, e.g., object.getName(), object.getPosition(), etc.
+				// Use this information to spawn entities or configure the game world.
+				tmx::Object::Shape shape = object.getShape();
+
+				if (object.getName() == "Finish") {
+					tmx::Vector2f position = object.getPosition();
+					if (shape == tmx::Object::Shape::Rectangle)
+					{
+
+						float width = object.getAABB().width;
+						float height = object.getAABB().height;
+
+						_finish.push_back(new Finish(_world, b2Vec2(position.x, position.y), width, height));
+					}
+				}
+				}
+			}
+		}
 }
+
 
 std::vector<Obstacle*>& Structures::getObstacles()
 {
@@ -96,4 +131,9 @@ std::vector<Obstacle*>& Structures::getObstacles()
 std::vector<Terrain*>& Structures::getTerrains()
 {
 	return _terrains;
+}
+
+std::vector<Finish*>& Structures::getFinish()
+{
+	return _finish;
 }

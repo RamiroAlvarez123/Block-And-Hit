@@ -1698,17 +1698,17 @@
 	<new>
 	<stdint.h>
 
-1721413167 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\globalcontactlistener.h
+1731344506 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\globalcontactlistener.h
 	<box2d/box2d.h>
 
 1721413167 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\globalcontactlistener.cpp
 	"GlobalContactListener.h"
 
-1731262368 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\juego.cpp
+1731343837 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\juego.cpp
 	"Juego.h"
 	<iostream>
 
-1731260052 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\juego.h
+1731338614 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\juego.h
 	"TiledMap.h"
 	"Structures.h"
 	"Player.h"
@@ -1723,12 +1723,13 @@
 	<box2d/box2d.h>
 	"Scene.h"
 
-1731183376 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\scene.h
+1731293793 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\scene.h
 	<SFML/Graphics.hpp>
 	<Box2D/Box2D.h>
 	"Juego.h"
+	"Reintentar.h"
 
-1731188567 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\scene.cpp
+1731341081 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\scene.cpp
 	"Scene.h"
 	<iostream>
 
@@ -1921,10 +1922,10 @@
 	"b2_api.h"
 	"b2_joint.h"
 
-1721413167 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\terrain.cpp
+1731272589 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\terrain.cpp
 	"Terrain.h"
 
-1721413167 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\terrain.h
+1731270592 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\terrain.h
 	"GlobalContactListener.h"
 	"constants.h"
 	<box2d/box2d.h>
@@ -1943,14 +1944,16 @@
 	<vector>
 	<tmxlite/ObjectGroup.hpp>
 
-1731175750 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\structures.cpp
+1731273500 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\structures.cpp
 	"Structures.h"
+	<iostream>
 
-1731170580 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\structures.h
+1731273507 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\structures.h
 	<vector>
 	<box2d/box2d.h>
 	"Obstacle.h"
 	"Terrain.h"
+	"Finish.h"
 	<tmxlite/Map.hpp>
 	<tmxlite/Layer.hpp>
 	<tmxlite/TileLayer.hpp>
@@ -2071,14 +2074,31 @@
 	<SFML/Audio/Export.hpp>
 	<string>
 
-1731190988 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\player.h
+1731347315 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\player.h
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	<box2d/box2d.h>
 	"constants.h"
 	"GlobalContactListener.h"
 
-1731261486 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\player.cpp
+1731347747 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\player.cpp
 	"Player.h"
 	<iostream>
+
+1731271349 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\finish.cpp
+	"Finish.h"
+
+1731271358 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\finish.h
+	"GlobalContactListener.h"
+	"constants.h"
+	<box2d/box2d.h>
+	<vector>
+	<tmxlite/ObjectGroup.hpp>
+
+1731336961 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\reintentar.h
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+
+1731336961 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\reintentar.cpp
+	"Reintentar.h"
 

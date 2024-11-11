@@ -5,13 +5,13 @@
  </tileset>
  <tileset firstgid="49" source="Decors.tsx"/>
  <tileset firstgid="147" source="tileset 2.tsx"/>
- <imagelayer id="5" name="Cielo" offsetx="-0.666667" offsety="-1.33333" repeatx="1">
+ <imagelayer id="5" name="Cielo" offsetx="0.666667" offsety="-1.33333" repeatx="1">
   <image source="../imgs/cielo.jpg" width="768" height="432"/>
  </imagelayer>
- <imagelayer id="2" name="Montaña" offsetx="2.33" offsety="229.334" repeatx="1">
+ <imagelayer id="2" name="Montaña" offsetx="6.32967" offsety="228.001" repeatx="1">
   <image source="../imgs/Montania.png" width="320" height="192"/>
  </imagelayer>
- <imagelayer id="4" name="Extension" offsetx="-0.6667" offsety="418" repeatx="1">
+ <imagelayer id="4" name="Extension" offsetx="-0.66634" offsety="406" repeatx="1">
   <image source="../imgs/Extension.png" width="433" height="148"/>
  </imagelayer>
  <layer id="1" name="Capa de patrones 1" width="100" height="30">

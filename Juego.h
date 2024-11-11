@@ -27,12 +27,12 @@ private:
     Player* _player;
     std::string _playerName = "";
 
-	bool _tryAgain = false;
+	bool _reintentar = false;
 	bool _showCredits = false;
+    bool _juego = true;
 
 	sf::RectangleShape* _deathScreen;
 	int _deathScreenOpacity = 0;
-	bool _isPlayerDead = false;
 	bool _isFrozen = false;
 	bool _isFadingOut = false;
 public:
@@ -42,7 +42,12 @@ public:
     void generateMap();
     void generateStructures();
     void spawnPlayer();
+    void reintentar();
     void respawn();
+    bool getJuego();
+    bool getReintentar();
+    void close();
+    void open();
     sf::Vector2f getCameraPosition();
 
 };

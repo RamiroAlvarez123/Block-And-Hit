@@ -3,6 +3,7 @@
 #include <box2d/box2d.h>
 #include "Obstacle.h"
 #include "Terrain.h"
+#include "Finish.h"
 #include <tmxlite/Map.hpp>
 #include <tmxlite/Layer.hpp>
 #include <tmxlite/TileLayer.hpp>
@@ -16,6 +17,7 @@ private:
 
 	std::vector<Obstacle*> _obstacles;
 	std::vector<Terrain*> _terrains;
+	std::vector<Finish*> _finish;
 public:
 	Structures(b2World& world, tmx::Map& tiled);
 
@@ -25,8 +27,11 @@ public:
 
 	void spawnTerrains();
 
+    void spawnFinish();
 	std::vector<Obstacle*>& getObstacles();
 
 	std::vector<Terrain*>& getTerrains();
+
+	std::vector<Finish*>& getFinish();
 };
 

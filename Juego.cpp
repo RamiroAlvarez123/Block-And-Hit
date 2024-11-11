@@ -10,7 +10,7 @@ Juego::Juego(b2World& world) : _world(world)
     _lifesTexture.loadFromFile("imgs/vidas.png");
 	_lifesSprite.setTexture(_lifesTexture);
 
-	_font.loadFromFile("font/PixelOperator8.ttf");
+	_font.loadFromFile("fonts/PixelOperator8.ttf");
 	_pointsText.setFont(_font);
 	_pointsText.setCharacterSize(24);
 	_pointsText.setFillColor(sf::Color::White);
@@ -52,12 +52,22 @@ void Juego::update(){
     _player->cmd();
 	_player->update();
 
+    _pointsText.setString(std::to_string(_totalPoints));
+
+
+
     if(_player->isDead()){
         _buffer.loadFromFile("sounds/explosion.wav");
         _sound.setBuffer(_buffer);
         _sound.play();
         respawn();
         _lifes--;
+        if(_lifes < 1){
+            _reintentar = true;
+        }
+    }
+
+    if(_player->isGameWin()){
 
     }
 }
@@ -74,13 +84,15 @@ void Juego::render(sf::RenderWindow& window){
     _player->render(window);
 
     sf::Vector2f viewCorner = window.mapPixelToCoords(sf::Vector2i(0, 0), view);
-	_lifesSprite.setPosition(viewCorner.x + 15, viewCorner.y + 15);
+	_lifesSprite.setPosition(viewCorner.x + 15, viewCorner.y);
 
 	window.draw(_lifesSprite);
 
-	_pointsText.setPosition(viewCorner.x + 15, viewCorner.y + 50); // Ejemplo de posici�n
+	_pointsText.setPosition(viewCorner.x + 15, viewCorner.y + 70); // Ejemplo de posici�n
 
 	window.draw(_pointsText);
+
+
 }
 
 
@@ -97,11 +109,22 @@ void Juego::spawnPlayer() {
 }
 
 void Juego::respawn() {
+    if(_lifes >1){
     delete _player;
     spawnPlayer();
+    }
+}
+void Juego::reintentar(){
+    _reintentar = false;
+    _lifes = 4;
 
+    respawn();
 }
 
+bool Juego::getJuego(){ return _juego;}
+bool Juego::getReintentar(){return _reintentar;}
+void Juego::close(){ _juego = false;}
+void Juego::open(){ _juego = true;}
 sf::Vector2f Juego::getCameraPosition()
 {
 	return _player->getPosition();

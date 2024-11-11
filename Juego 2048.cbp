@@ -34,7 +34,7 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 			<Add directory="SFML-2.6.1/include" />
-			<Add directory="C:/Users/Ramiro Alvarez/OneDrive/Escritorio/Block and Hit/tmxlite/tmxlite/include" />
+			<Add directory="tmxlite/tmxlite/include" />
 			<Add directory="box2d-2.4.2/include" />
 		</Compiler>
 		<Linker>
@@ -51,6 +51,8 @@
 		<Unit filename="ArchivoLogin.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
+		<Unit filename="Finish.cpp" />
+		<Unit filename="Finish.h" />
 		<Unit filename="GlobalContactListener.cpp" />
 		<Unit filename="GlobalContactListener.h" />
 		<Unit filename="Juego 2048.cbp" />
@@ -60,6 +62,8 @@
 		<Unit filename="Obstacle.h" />
 		<Unit filename="Player.cpp" />
 		<Unit filename="Player.h" />
+		<Unit filename="Reintentar.cpp" />
+		<Unit filename="Reintentar.h" />
 		<Unit filename="Scene.cpp" />
 		<Unit filename="Scene.h" />
 		<Unit filename="SceneManager.cpp" />
