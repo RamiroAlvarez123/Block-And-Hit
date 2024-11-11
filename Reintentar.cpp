@@ -2,10 +2,10 @@
 
 Reintentar::Reintentar()
 {
-	_yesTexture.loadFromFile("imgs/TRY_AGAIN_YES.png");
+	_yesTexture.loadFromFile("imgs/intento_si.png");
 	_yesSprite.setTexture(_yesTexture);
 
-	_noTexture.loadFromFile("imgs/TRY_AGAIN_NO.png");
+	_noTexture.loadFromFile("imgs/intento_no.png");
 	_noSprite.setTexture(_noTexture);
 }
 

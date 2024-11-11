@@ -7,6 +7,7 @@ Juego::Juego(b2World& world) : _world(world)
     generateMap();
     generateStructures();
     spawnPlayer();
+    spawnEnemies();
     _lifesTexture.loadFromFile("imgs/vidas.png");
 	_lifesSprite.setTexture(_lifesTexture);
 
@@ -70,6 +71,15 @@ void Juego::update(){
     if(_player->isGameWin()){
 
     }
+
+    auto& enemies = _enemySpawn->getEnemies();
+	for (auto enemy : enemies) {
+		enemy->update();
+		if (enemy->isDead()) {
+			enemies.erase(std::remove(enemies.begin(), enemies.end(), enemy), enemies.end());
+			delete enemy;
+		}
+	}
 }
 void Juego::render(sf::RenderWindow& window){
     sf::View view = window.getView();
@@ -82,6 +92,11 @@ void Juego::render(sf::RenderWindow& window){
     _tiledMap->render(window);
 
     _player->render(window);
+
+    auto& enemies = _enemySpawn->getEnemies();
+	for (auto enemy : enemies) {
+		enemy->render(window);
+	}
 
     sf::Vector2f viewCorner = window.mapPixelToCoords(sf::Vector2i(0, 0), view);
 	_lifesSprite.setPosition(viewCorner.x + 15, viewCorner.y);
@@ -107,12 +122,17 @@ void Juego::generateStructures(){
 void Juego::spawnPlayer() {
 	_player = new Player(_world, _tiledMap->getPlayerSpawnPoint());
 }
-
+void Juego::spawnEnemies(){
+    _enemySpawn = new EnemySpawn(_world, _tiledMap->getMap());
+}
 void Juego::respawn() {
     if(_lifes >1){
     delete _player;
     spawnPlayer();
+
     }
+    delete _enemySpawn;
+	spawnEnemies();
 }
 void Juego::reintentar(){
     _reintentar = false;

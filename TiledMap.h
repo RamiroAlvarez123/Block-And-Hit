@@ -29,6 +29,8 @@ private:
     sf::Sprite _ExtSprite;
     sf::Texture _CieloTexture;
     sf::Sprite _CieloSprite;
+    sf::Texture _CuevaTexture;
+    sf::Sprite _CuevaSprite;
 public:
     TiledMap(b2World& world);
 

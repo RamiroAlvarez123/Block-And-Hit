@@ -51,6 +51,10 @@
 		<Unit filename="ArchivoLogin.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
+		<Unit filename="Enemy.cpp" />
+		<Unit filename="Enemy.h" />
+		<Unit filename="EnemySpawn.cpp" />
+		<Unit filename="EnemySpawn.h" />
 		<Unit filename="Finish.cpp" />
 		<Unit filename="Finish.h" />
 		<Unit filename="GlobalContactListener.cpp" />

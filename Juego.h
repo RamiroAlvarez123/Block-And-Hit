@@ -2,6 +2,7 @@
 #include "TiledMap.h"
 #include "Structures.h"
 #include "Player.h"
+#include "EnemySpawn.h"
 #include <SFML/Graphics.hpp>
 #include <Box2D/Box2D.h>
 
@@ -25,6 +26,7 @@ private:
 
     Structures* _structures;
     Player* _player;
+    EnemySpawn* _enemySpawn;
     std::string _playerName = "";
 
 	bool _reintentar = false;
@@ -42,6 +44,7 @@ public:
     void generateMap();
     void generateStructures();
     void spawnPlayer();
+    void spawnEnemies();
     void reintentar();
     void respawn();
     bool getJuego();

@@ -1306,11 +1306,11 @@
 	<tmxlite/detail/Log.hpp>
 	<ctype.h>
 
-1731100322 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\tiledmap.cpp
+1731362530 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\tiledmap.cpp
 	"TiledMap.h"
 	<iostream>
 
-1731017803 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\tiledmap.h
+1731361402 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\tiledmap.h
 	<SFML/Graphics.hpp>
 	<box2d/box2d.h>
 	"GlobalContactListener.h"
@@ -1704,14 +1704,15 @@
 1721413167 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\globalcontactlistener.cpp
 	"GlobalContactListener.h"
 
-1731343837 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\juego.cpp
+1731352999 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\juego.cpp
 	"Juego.h"
 	<iostream>
 
-1731338614 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\juego.h
+1731350513 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\juego.h
 	"TiledMap.h"
 	"Structures.h"
 	"Player.h"
+	"EnemySpawn.h"
 	<SFML/Graphics.hpp>
 	<Box2D/Box2D.h>
 
@@ -2099,6 +2100,28 @@
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 
-1731336961 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\reintentar.cpp
+1731364383 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\reintentar.cpp
 	"Reintentar.h"
+
+1731355436 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\enemy.cpp
+	"Enemy.h"
+	<iostream>
+
+1731351678 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\enemy.h
+	<SFML/Graphics.hpp>
+	<box2d/box2d.h>
+	"constants.h"
+	"GlobalContactListener.h"
+
+1721413167 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\enemyspawn.cpp
+	"EnemySpawn.h"
+
+1721413167 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\enemyspawn.h
+	<vector>
+	<box2d/box2d.h>
+	"Enemy.h"
+	<tmxlite/Map.hpp>
+	<tmxlite/Layer.hpp>
+	<tmxlite/TileLayer.hpp>
+	<tmxlite/ObjectGroup.hpp>
 
