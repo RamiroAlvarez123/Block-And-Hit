@@ -133,6 +133,15 @@ void Player::cmd()
 	if (!isMoving) {
 		_state = PlayerState::Idle;
 	}
+
+	if(isMoving && _onGround){
+        _buffer.loadFromFile("sounds/walk.wav");
+        _sound.setBuffer(_buffer);
+    if (clock.getElapsedTime() >= cooldown) {
+        _sound.play();
+        clock.restart(); // Reiniciar el reloj para el próximo cooldown
+        }
+	}
 }
 
 void Player::update()

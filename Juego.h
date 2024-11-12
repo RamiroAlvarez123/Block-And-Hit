@@ -31,7 +31,8 @@ private:
 
 	bool _reintentar = false;
 	bool _showCredits = false;
-    bool _juego = true;
+    bool _juego = false;
+    bool _pausa = false;
 
 	sf::RectangleShape* _deathScreen;
 	int _deathScreenOpacity = 0;
@@ -39,7 +40,9 @@ private:
 	bool _isFadingOut = false;
 public:
     Juego(b2World& world);
+    ~Juego();
     void update();
+    void update(sf::Event event);
     void render(sf::RenderWindow& window);
     void generateMap();
     void generateStructures();
@@ -49,6 +52,8 @@ public:
     void respawn();
     bool getJuego();
     bool getReintentar();
+    void crearJuego();
+    bool getPausa();
     void close();
     void open();
     sf::Vector2f getCameraPosition();

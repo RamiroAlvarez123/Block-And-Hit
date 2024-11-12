@@ -18,6 +18,13 @@ Juego::Juego(b2World& world) : _world(world)
 	_pointsText.setOutlineThickness(2);
 	_pointsText.setOutlineColor(sf::Color::Black);
 }
+Juego::~Juego()
+{
+	delete _tiledMap;
+	delete _structures;
+	delete _player;
+	delete _enemySpawn;
+}
 
 void Juego::update(){
     // Update Lifes
@@ -62,6 +69,7 @@ void Juego::update(){
         _sound.setBuffer(_buffer);
         _sound.play();
         respawn();
+
         _lifes--;
         if(_lifes < 1){
             _reintentar = true;
@@ -80,7 +88,15 @@ void Juego::update(){
 			delete enemy;
 		}
 	}
+
+
 }
+void Juego::update(sf::Event event){
+if(event.key.code==sf::Keyboard::Escape){
+        _pausa = true;
+    }
+}
+bool Juego::getPausa(){return _pausa;}
 void Juego::render(sf::RenderWindow& window){
     sf::View view = window.getView();
 	sf::Vector2f playerPos = getCameraPosition();
@@ -144,7 +160,7 @@ void Juego::reintentar(){
 bool Juego::getJuego(){ return _juego;}
 bool Juego::getReintentar(){return _reintentar;}
 void Juego::close(){ _juego = false;}
-void Juego::open(){ _juego = true;}
+void Juego::open(){ _juego = true, _pausa = false;;}
 sf::Vector2f Juego::getCameraPosition()
 {
 	return _player->getPosition();

@@ -25,6 +25,7 @@ int main(){
         else{
         SceneManager.update(event);
      }
+
     }
 
         SceneManager.update();

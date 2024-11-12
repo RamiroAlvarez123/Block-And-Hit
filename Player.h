@@ -18,6 +18,8 @@ private:
 	sf::Sprite* _sprite;
 	sf::SoundBuffer _buffer;
 	sf::Sound _sound;
+	sf::Clock clock;
+	sf::Time cooldown = sf::seconds(0.3f);
 	b2Body* _body;
 
 	float _width = 32.0f;

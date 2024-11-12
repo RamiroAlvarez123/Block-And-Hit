@@ -665,7 +665,7 @@
 	<iostream>
 	"Usuario.h"
 
-1731256330 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\main.cpp
+1731415624 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\main.cpp
 	"SceneManager.h"
 	<box2d/box2d.h>
 
@@ -1704,11 +1704,11 @@
 1721413167 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\globalcontactlistener.cpp
 	"GlobalContactListener.h"
 
-1731352999 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\juego.cpp
+1731419608 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\juego.cpp
 	"Juego.h"
 	<iostream>
 
-1731350513 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\juego.h
+1731418619 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\juego.h
 	"TiledMap.h"
 	"Structures.h"
 	"Player.h"
@@ -1724,13 +1724,15 @@
 	<box2d/box2d.h>
 	"Scene.h"
 
-1731293793 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\scene.h
+1731418332 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\scene.h
 	<SFML/Graphics.hpp>
 	<Box2D/Box2D.h>
 	"Juego.h"
 	"Reintentar.h"
+	"Menu.h"
+	"Pausa.h"
 
-1731341081 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\scene.cpp
+1731418852 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\scene.cpp
 	"Scene.h"
 	<iostream>
 
@@ -2075,14 +2077,14 @@
 	<SFML/Audio/Export.hpp>
 	<string>
 
-1731347315 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\player.h
+1731371714 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\player.h
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	<box2d/box2d.h>
 	"constants.h"
 	"GlobalContactListener.h"
 
-1731347747 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\player.cpp
+1731370821 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\player.cpp
 	"Player.h"
 	<iostream>
 
@@ -2124,4 +2126,29 @@
 	<tmxlite/Layer.hpp>
 	<tmxlite/TileLayer.hpp>
 	<tmxlite/ObjectGroup.hpp>
+
+1731377381 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\menu.h
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+
+1731377339 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\menu.cpp
+	<iostream>
+	"Menu.h"
+
+1731381795 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\jugar.cpp
+	"Jugar.h"
+
+1731381783 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\jugar.h
+	<Box2D/Box2D.h>
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+	"Juego.h"
+
+1731420602 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\pausa.h
+	<SFML/Graphics.hpp>
+
+1731420665 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\pausa.cpp
+	<iostream>
+	<SFML/Graphics.hpp>
+	"Pausa.h"
 
