@@ -1,5 +1,8 @@
+#include <iostream>
 #include "SceneManager.h"
 #include <box2d/box2d.h>
+
+
 
 int main(){
 
@@ -21,17 +24,15 @@ int main(){
             {
                 window.close();
             }
-
         else{
         SceneManager.update(event);
      }
 
     }
-
-        SceneManager.update();
-
+    SceneManager.update();
     window.clear();
     SceneManager.render(window);
+
     window.display();
    }
 
