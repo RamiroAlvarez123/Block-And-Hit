@@ -7,6 +7,8 @@ Scene::Scene(b2World& world) : _world(world)
     _reintentar = new Reintentar();
     _menu = new Menu();
     _pausa = new Pausa();
+    _scoreboard = new Scoreboard();
+    _nombrejugador = new NombreJugador();
 }
 
 void Scene::update() {
@@ -20,23 +22,44 @@ void Scene::update() {
 }
 
 void Scene::update(sf::Event event) {
-    if(_menu->getMenu()){
+
+if(_menu->getMenu()){
         _menu->update(event);
+
     if(_menu->getSelectedOpc() == 0){
         _menu->close();
+
         if (_juego != nullptr) {
 		delete _juego;
 	}
 	_juego = new Juego(_world);
-        _juego->open();
+    _nombrejugador->open();
+
     }else if(_menu->getSelectedOpc() == 1){
+        _menu->close();
+        _scoreboard->open();
 
     }else if(_menu->getSelectedOpc() == 2){
-
+        _menu->close();
      }
+}
+else if(_nombrejugador->getInNombreJugador()){
+            _nombrejugador->update(event);
+            if(_nombrejugador->setNombreJugador()){
+                _nombrejugador->close();
+                _juego->open();
+            }
     }
+else if(_scoreboard->getScoreboard()){
 
-if(_reintentar->getReintentar()){
+        _scoreboard->update(event);
+    if(_scoreboard->getSelectOpc() == 2){
+        _scoreboard->close();
+        _menu->open();
+    }
+}
+
+else if(_reintentar->getReintentar()){
 
     _reintentar->update(event);
 
@@ -50,9 +73,8 @@ if(_reintentar->getReintentar()){
         _menu->open();
     }
 }
-    if(_pausa->getPausa()){
+else if(_pausa->getPausa()){
         _pausa->update(event);
-        std::cout<<_pausa->getSelecOpc();
         if(_pausa->getSelecOpc() == 0){
             _pausa->close();
             _juego->open();
@@ -60,15 +82,15 @@ if(_reintentar->getReintentar()){
             _pausa->close();
             _menu->open();
         }
-    }
+}
 
-    if(_juego->getJuego()){
+else if(_juego->getJuego()){
         _juego->update(event);
         if(_juego->getPausa()){
             _juego->close();
             _pausa->open();
         }
-    }
+ }
 
 }
 
@@ -80,6 +102,12 @@ void Scene::render(sf::RenderWindow& window)
     if(_juego->getJuego()){
        _juego->render(window);
     }
+    if(_nombrejugador->getInNombreJugador()){
+        _nombrejugador->render(window);
+    }
+    if(_scoreboard->getScoreboard()){
+        _scoreboard->render(window);
+    }
     if(_reintentar->getReintentar()){
         _juego->render(window);
         _reintentar->render(window);
@@ -88,6 +116,10 @@ void Scene::render(sf::RenderWindow& window)
         _juego->render(window);
         _pausa->render(window);
     }
+}
+
+bool Scene::salir() const{
+return _menu->getSalida();
 }
 
 

@@ -29,6 +29,9 @@ int main(){
      }
 
     }
+    if(SceneManager.salir()){
+        window.close();
+    }
     SceneManager.update();
     window.clear();
     SceneManager.render(window);

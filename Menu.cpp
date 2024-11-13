@@ -3,9 +3,10 @@
 
 
 Menu::Menu(){
-    bool _menuOpc = -1;
-int _menuSelecOpc = 0;
-int _inMenu = true;
+    _menuSelecOpc = 0;
+     _menuSelectedOpc = -1;
+     _inMenu = true;
+
 	_jugarTexture.loadFromFile("imgs/menu_jugar.jpg");
 	_jugarSprite.setTexture(_jugarTexture);
 
@@ -28,13 +29,13 @@ if(event.type== sf::Event::KeyPressed){
     }
     else if (event.key.code == sf::Keyboard::Enter) {
         if(_menuSelecOpc==0){
-            _menuOpc=0;
+            _menuSelectedOpc=0;
         }
         else if(_menuSelecOpc==1){
-            _menuOpc=1;
+            _menuSelectedOpc=1;
         }
         else if(_menuSelecOpc==2){
-            _menuOpc=2;
+            _menuSelectedOpc=2;
         }
     }
 }
@@ -61,25 +62,20 @@ bool Menu::getMenu() const{
 return _inMenu;
 }
 bool Menu::getSalida() const{
-if (_menuOpc == 2) {
+if (_menuSelectedOpc == 2) {
+
 		return true;
 	}
 	return false;
 }
-void Menu::open(bool music){
-if (!music) {
-		Musicmenu.play();
-	}
+void Menu::open(){
 	_menuSelecOpc = 0;
-	_menuOpc = -1;
+	_menuSelectedOpc = -1;
 	_inMenu = true;
 }
-void Menu::close(bool music){
-if (!music) {
-		Musicmenu.stop();
-	}
+void Menu::close(){
 	_inMenu = false;
 	}
 int Menu::getSelectedOpc() const{
-return _menuOpc;
+return _menuSelectedOpc;
 }

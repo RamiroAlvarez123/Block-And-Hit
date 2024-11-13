@@ -18,9 +18,9 @@ sf::SoundBuffer _Buffer;
 sf::Sound _sound;
 sf::Music Musicmenu;
 
-bool _menuOpc;
+int _menuSelectedOpc;
 int _menuSelecOpc;
-int _inMenu = true;
+bool _inMenu = true;
 
 public:
 
@@ -29,7 +29,7 @@ void update(sf::Event event);
 void render(sf::RenderWindow& window);
 bool getMenu() const;
 bool getSalida() const;
-void open(bool music = false);
-void close(bool music = false);
+void open();
+void close();
 int getSelectedOpc() const;
 };

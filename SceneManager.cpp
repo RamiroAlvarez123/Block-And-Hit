@@ -16,3 +16,6 @@ void SceneManager::render(sf::RenderWindow& window) {
 	_scene->render(window);
 }
 
+bool SceneManager::salir() const{
+    return _scene->salir();
+}

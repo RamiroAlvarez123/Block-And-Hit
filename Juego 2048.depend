@@ -665,7 +665,7 @@
 	<iostream>
 	"Usuario.h"
 
-1731421606 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\main.cpp
+1731423462 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\main.cpp
 	<iostream>
 	"SceneManager.h"
 	<box2d/box2d.h>
@@ -1717,23 +1717,26 @@
 	<SFML/Graphics.hpp>
 	<Box2D/Box2D.h>
 
-1731071730 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\scenemanager.cpp
+1731423630 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\scenemanager.cpp
 	"SceneManager.h"
 
-1731073493 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\scenemanager.h
+1731423692 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\scenemanager.h
 	<SFML/Graphics.hpp>
 	<box2d/box2d.h>
 	"Scene.h"
+	"Menu.h"
 
-1731418332 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\scene.h
+1731451689 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\scene.h
 	<SFML/Graphics.hpp>
 	<Box2D/Box2D.h>
 	"Juego.h"
 	"Reintentar.h"
 	"Menu.h"
 	"Pausa.h"
+	"Scoreboard.h"
+	"NombreJugador.h"
 
-1731418852 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\scene.cpp
+1731457439 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\scene.cpp
 	"Scene.h"
 	<iostream>
 
@@ -2130,11 +2133,11 @@
 
 1721413167 D
 
-1731377381 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\menu.h
+1731446302 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\menu.h
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 
-1731377339 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\menu.cpp
+1731446288 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\menu.cpp
 	<iostream>
 	"Menu.h"
 
@@ -3305,4 +3308,26 @@
 	<SFML/Graphics.hpp>
 	<menuPausa.h>
 	<estadoJuego.h>
+
+1731445438 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\scoreboard.h
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+	"ScoreboardFile.h"
+
+1731442729 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\scoreboardfile.h
+	<iostream>
+	<SFML/Graphics.hpp>
+
+1731451615 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\scoreboardfile.cpp
+	"ScoreboardFile.h"
+
+1731445438 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\scoreboard.cpp
+	<iostream>
+	"Scoreboard.h"
+
+1731453544 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\nombrejugador.h
+	<SFML/Graphics.hpp>
+
+1731456008 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\nombrejugador.cpp
+	"NombreJugador.h"
 

@@ -5,6 +5,9 @@
 #include "Reintentar.h"
 #include "Menu.h"
 #include "Pausa.h"
+#include "Scoreboard.h"
+#include "NombreJugador.h"
+
 class Scene {
 private:
 	b2World& _world;
@@ -12,6 +15,8 @@ private:
 	Reintentar* _reintentar;
     Menu* _menu;
     Pausa* _pausa;
+    Scoreboard* _scoreboard;
+    NombreJugador* _nombrejugador;
 
 public:
 	Scene(b2World& world);
@@ -23,4 +28,6 @@ public:
 	void render(sf::RenderWindow& window);
 
 	bool shouldExit() const;
+
+	bool salir() const;
 };

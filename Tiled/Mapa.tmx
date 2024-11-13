@@ -19,7 +19,7 @@
  </imagelayer>
  <layer id="1" name="Capa de patrones 1" width="200" height="30">
   <data encoding="base64" compression="zlib">
-   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
+   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
   </data>
  </layer>
  <objectgroup id="6" name="Capa de Objetos 1">
@@ -28,7 +28,7 @@
   <object id="5" name="Terrain" x="194" y="369.333" width="44" height="109.333"/>
   <object id="6" name="Terrain" x="273.333" y="353.333" width="141.333" height="45.3333"/>
   <object id="7" name="Terrain" x="480.167" y="353.333" width="16" height="125.333"/>
-  <object id="14" name="Terrain" x="704.333" y="288.333" width="270.667" height="46"/>
+  <object id="14" name="Terrain" x="704.333" y="303.833" width="270.667" height="30.5"/>
   <object id="43" name="Player" x="63.5" y="242.25">
    <point/>
   </object>
@@ -51,7 +51,7 @@
    <polygon points="0,0 15.75,0 16,-32.3765 127.75,-32.6335 128.25,0 143.75,0.256957 144,-49.0787 96.25,-49.0787 93.0833,-253.903 48,-253.493 48,-48.8217 0.25,-48.8217"/>
   </object>
   <object id="73" name="Terrain" x="1216.17" y="319.5" width="47.667" height="32"/>
-  <object id="74" name="Terrain" x="1312.67" y="336.5" width="158.667" height="47.5"/>
+  <object id="74" name="Terrain" x="1312.67" y="351.5" width="158.667" height="32.5"/>
   <object id="75" name="Terrain" x="1504.17" y="335.5" width="47.667" height="32"/>
   <object id="77" name="Terrain" x="1583.67" y="320.5" width="47.667" height="32"/>
   <object id="78" name="Terrain" x="1648.17" y="305" width="47.667" height="174.5"/>
@@ -104,9 +104,9 @@
   <object id="120" name="Enemy" x="1090" y="288">
    <point/>
   </object>
-  <object id="121" name="Terrain" x="704" y="272" width="16.6663" height="14.6666"/>
-  <object id="122" name="Terrain" x="959" y="273.333" width="16.6663" height="14.6666"/>
-  <object id="123" name="Terrain" x="1312.33" y="322" width="16.6663" height="14.6666"/>
-  <object id="124" name="Terrain" x="1455.67" y="320.667" width="16.6663" height="14.6666"/>
+  <object id="121" name="Terrain" x="704" y="272" width="16.6663" height="31.6666"/>
+  <object id="122" name="Terrain" x="959" y="273.333" width="16.6663" height="30.1666"/>
+  <object id="123" name="Terrain" x="1312.33" y="319.75" width="16.6663" height="30.9166"/>
+  <object id="124" name="Terrain" x="1455.67" y="320.667" width="16.6663" height="30.6666"/>
  </objectgroup>
 </map>
