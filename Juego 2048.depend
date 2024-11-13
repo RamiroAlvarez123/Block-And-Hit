@@ -1705,11 +1705,11 @@
 1721413167 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\globalcontactlistener.cpp
 	"GlobalContactListener.h"
 
-1731504970 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\juego.cpp
+1731534084 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\juego.cpp
 	"Juego.h"
 	<iostream>
 
-1731504977 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\juego.h
+1731533856 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\juego.h
 	"TiledMap.h"
 	"Structures.h"
 	"Player.h"
@@ -1931,7 +1931,7 @@
 	"b2_api.h"
 	"b2_joint.h"
 
-1731272589 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\terrain.cpp
+1731534725 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\terrain.cpp
 	"Terrain.h"
 
 1731270592 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\terrain.h
@@ -3321,7 +3321,7 @@
 	"ObjJugador.h"
 	<SFML/Graphics.hpp>
 
-1731526060 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\scoreboardfile.cpp
+1731527087 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\scoreboardfile.cpp
 	<iostream>
 	"ScoreboardFile.h"
 	<vector>

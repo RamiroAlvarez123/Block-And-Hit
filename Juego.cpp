@@ -3,6 +3,7 @@
 
 Juego::Juego(b2World& world) : _world(world)
 {
+    _tiempo = 240.0f;
     generateMap();
     generateStructures();
     spawnPlayer();
@@ -16,6 +17,12 @@ Juego::Juego(b2World& world) : _world(world)
 	_pointsText.setFillColor(sf::Color::White);
 	_pointsText.setOutlineThickness(2);
 	_pointsText.setOutlineColor(sf::Color::Black);
+
+    _timerText.setFont(_font);
+    _timerText.setCharacterSize(24);
+    _timerText.setFillColor(sf::Color::White);
+    _timerText.setOutlineThickness(2);
+	_timerText.setOutlineColor(sf::Color::Black);
 }
 Juego::~Juego()
 {
@@ -58,7 +65,7 @@ void Juego::update(){
     _player->cmd();
 	_player->update();
 
-    _pointsText.setString(std::to_string(_totalPoints));
+    _pointsText.setString(std::to_string(_puntos) + " PTS");
 
 
 
@@ -74,8 +81,10 @@ void Juego::update(){
         }
     }
 
+
+
     if(_player->inFinish()){
-        _puntos = (_lifes * 200) + _puntos;
+        _puntos = (_lifes * 200) + _puntos + _tiempoRestante;
         _scoreboardfile.guardarJugador(ObjJugador(getNombreJugador(), _puntos));
         _infinish = true;
 
@@ -99,6 +108,7 @@ if(event.key.code==sf::Keyboard::Escape){
     }
 }
 bool Juego::getPausa(){return _pausa;}
+
 void Juego::render(sf::RenderWindow& window){
     sf::View view = window.getView();
 	sf::Vector2f playerPos = getCameraPosition();
@@ -111,6 +121,15 @@ void Juego::render(sf::RenderWindow& window){
 
     _player->render(window);
 
+    sf::Time elapsed = clock.getElapsedTime();
+    _tiempoRestante = _tiempo - elapsed.asSeconds();
+    std::string timerBackwardText = std::to_string(static_cast<int>(_tiempoRestante)) + " s";
+    _timerText.setString(timerBackwardText);
+
+    if(_tiempoRestante <= 0){
+        _reintentar = true;
+    }
+
     auto& enemies = _enemySpawn->getEnemies();
 	for (auto enemy : enemies) {
 		enemy->render(window);
@@ -121,10 +140,11 @@ void Juego::render(sf::RenderWindow& window){
 
 	window.draw(_lifesSprite);
 
-	_pointsText.setPosition(viewCorner.x + 15, viewCorner.y + 70); // Ejemplo de posici�n
+	_pointsText.setPosition(viewCorner.x + 15, viewCorner.y + 70);
+    _timerText.setPosition(viewCorner.x + 300, viewCorner.y + 20);
 
 	window.draw(_pointsText);
-
+    window.draw(_timerText);
 
 }
 
@@ -156,7 +176,7 @@ void Juego::reintentar(){
     _reintentar = false;
     _puntos = 0;
     _lifes = 4;
-
+    _tiempo = 240.0f;
     respawn();
 }
 

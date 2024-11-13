@@ -22,9 +22,14 @@ private:
 	sf::Texture _lifesTexture;
 	sf::Sprite _lifesSprite;
 
-	int _totalPoints = 0;
+	int _puntos = 0;
 	sf::Font _font;
 	sf::Text _pointsText;
+
+    float _tiempo = 240.0f;
+    float _tiempoRestante;
+    sf::Clock clock;
+    sf::Text _timerText;
 
     Structures* _structures;
     Player* _player;
@@ -38,7 +43,6 @@ private:
     bool _pausa = false;
     bool _infinish = false;
 
-	int _puntos = 0;
 	bool _isFrozen = false;
 	bool _isFadingOut = false;
 public:
