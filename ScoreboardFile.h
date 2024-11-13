@@ -1,25 +1,25 @@
-/*#pragma once
+#pragma once
 #include <iostream>
-///#include "PlayerScore.h" /// agregar playerscore
+#include "ObjJugador.h"
 #include <SFML/Graphics.hpp>
 
-class Archirank{
+class ScoreboardFile{
 private:
 
 public:
 
-    Archirank();
+    ScoreboardFile();
 
-	int contarRegistro();
+	int contarRegistros();
 	void ordenarRanking();
 
-	bool savePlayer(const PlayerScore &score);
+	bool guardarJugador(const ObjJugador &jugador);
 
-	PlayerScore readPlayer(int pos);
+	ObjJugador leerJugador(int pos);
 
-	void showTopTen(sf::RenderWindow& window);
+	void mostrarTop(sf::RenderWindow& window);
 };
-*/
+
 
 
 

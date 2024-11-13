@@ -1705,15 +1705,17 @@
 1721413167 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\globalcontactlistener.cpp
 	"GlobalContactListener.h"
 
-1731419608 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\juego.cpp
+1731504970 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\juego.cpp
 	"Juego.h"
 	<iostream>
 
-1731418619 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\juego.h
+1731504977 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\juego.h
 	"TiledMap.h"
 	"Structures.h"
 	"Player.h"
 	"EnemySpawn.h"
+	"ScoreboardFile.h"
+	"ObjJugador.h"
 	<SFML/Graphics.hpp>
 	<Box2D/Box2D.h>
 
@@ -1736,7 +1738,7 @@
 	"Scoreboard.h"
 	"NombreJugador.h"
 
-1731457439 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\scene.cpp
+1731504970 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\scene.cpp
 	"Scene.h"
 	<iostream>
 
@@ -2081,14 +2083,14 @@
 	<SFML/Audio/Export.hpp>
 	<string>
 
-1731371714 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\player.h
+1731504091 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\player.h
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	<box2d/box2d.h>
 	"constants.h"
 	"GlobalContactListener.h"
 
-1731370821 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\player.cpp
+1731504091 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\player.cpp
 	"Player.h"
 	<iostream>
 
@@ -3309,19 +3311,23 @@
 	<menuPausa.h>
 	<estadoJuego.h>
 
-1731445438 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\scoreboard.h
+1731517085 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\scoreboard.h
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	"ScoreboardFile.h"
 
-1731442729 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\scoreboardfile.h
+1731522076 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\scoreboardfile.h
 	<iostream>
+	"ObjJugador.h"
 	<SFML/Graphics.hpp>
 
-1731451615 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\scoreboardfile.cpp
+1731526060 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\scoreboardfile.cpp
+	<iostream>
 	"ScoreboardFile.h"
+	<vector>
+	<algorithm>
 
-1731445438 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\scoreboard.cpp
+1731522701 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\scoreboard.cpp
 	<iostream>
 	"Scoreboard.h"
 
@@ -3330,4 +3336,12 @@
 
 1731456008 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\nombrejugador.cpp
 	"NombreJugador.h"
+
+1731522595 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\objjugador.h
+	<iostream>
+
+1731526091 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\objjugador.cpp
+	"ObjJugador.h"
+	<iostream>
+	<cstring>
 

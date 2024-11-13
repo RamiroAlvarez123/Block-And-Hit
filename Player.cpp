@@ -217,7 +217,7 @@ void Player::onBeginContact(b2Fixture* self, b2Fixture* other)
 		_death = true;
 	}
 	if (data->type == FixtureDataType::Finish) {
-		_gameWin = true;
+		_finished = true;
 	}
 	else if (_groundFixture == self && (data->type == FixtureDataType::GroundTile)) {
 		_onGround = true;
@@ -258,6 +258,6 @@ bool Player::isDead() {
 	return _death;
 }
 
-bool Player::isGameWin(){
-    return _gameWin;
+bool Player::inFinish(){
+    return _finished;
 }

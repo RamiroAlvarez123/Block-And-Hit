@@ -13,7 +13,7 @@ private:
     sf::Texture _topTexture;
     sf::Sprite _topSprite;
 
-    //ArchiRank _ArchiRanking;
+    ScoreboardFile _scoreboardfile;
 
     int _SelectOpc = -1;
 

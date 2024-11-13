@@ -17,23 +17,24 @@ if(event.type == sf::Event::KeyPressed){
  }
 
 }
-	void Scoreboard::render(sf::RenderWindow& window){
+
+void Scoreboard::render(sf::RenderWindow& window){
 
 	sf::View currentView=window.getView();
 	sf::Vector2f centerPosition = currentView.getCenter();
 
     _topSprite.setPosition(centerPosition.x - 400.0f, 0.0f);
     window.draw(_topSprite);
-    //_ArchiRanking.mostrarTopTen(window);
+    _scoreboardfile.mostrarTop(window);
 
-	}
+}
 
 	bool Scoreboard::getScoreboard() const{
 	return _inScoreboard;
 	}
 
 	void Scoreboard::open(){
-	//_ArchiRanking.ordenarRanking();
+	 _scoreboardfile.ordenarRanking();
 	_SelectOpc = -1;
 	_inScoreboard = true;
 	}

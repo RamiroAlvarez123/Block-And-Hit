@@ -65,6 +65,10 @@
 		<Unit filename="Juego.h" />
 		<Unit filename="Menu.cpp" />
 		<Unit filename="Menu.h" />
+		<Unit filename="NombreJugador.cpp" />
+		<Unit filename="NombreJugador.h" />
+		<Unit filename="ObjJugador.cpp" />
+		<Unit filename="ObjJugador.h" />
 		<Unit filename="Obstacle.cpp" />
 		<Unit filename="Obstacle.h" />
 		<Unit filename="Pausa.cpp" />
@@ -77,6 +81,10 @@
 		<Unit filename="Scene.h" />
 		<Unit filename="SceneManager.cpp" />
 		<Unit filename="SceneManager.h" />
+		<Unit filename="Scoreboard.cpp" />
+		<Unit filename="Scoreboard.h" />
+		<Unit filename="ScoreboardFile.cpp" />
+		<Unit filename="ScoreboardFile.h" />
 		<Unit filename="Structures.cpp" />
 		<Unit filename="Structures.h" />
 		<Unit filename="Terrain.cpp" />

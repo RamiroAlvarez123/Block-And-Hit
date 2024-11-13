@@ -1,11 +1,27 @@
-/*#include <iostream>
+#include <iostream>
 #include "ScoreboardFile.h"
+#include <vector>
+#include <algorithm>
 
 
+ScoreboardFile::ScoreboardFile(){}
 
-Archirank::Archirank(){}
 
-	int Archirank::contarRegistro(){
+    bool ScoreboardFile::guardarJugador(const ObjJugador& jugador){
+	FILE *Archi1;
+	Archi1=fopen("ranking.dat","ab");
+	if(Archi1==NULL){
+        std::cout << "ERROR AL ESCRIBIR/CREAR RANKING.DAT" << std::endl;
+        return false;
+	}
+bool escritura=fwrite(&jugador, sizeof(ObjJugador), 1, Archi1);
+fclose(Archi1);
+
+return escritura;
+	}
+
+
+	int ScoreboardFile::contarRegistros(){
 	FILE* Archi1;
 
     Archi1 = fopen("ranking.dat", "rb");
@@ -16,87 +32,11 @@ Archirank::Archirank(){}
     int tam = ftell(Archi1);
     fclose(Archi1);
 
-    return tam / sizeof(PlayerScore);
+    return tam / sizeof(ObjJugador);
     }
 
-	void Archirank::ordenarRanking(){
-	FILE* Archi1;
-	Archi1 = fopen("ranking.dat", "rb+");
-	if (Archi1 == NULL) {
-		std::cout << "error al ordenar" << std::endl;
-		return;
-	}
-
-	PlayerScore obj1, obj2;
-	int cant = contarRegistros();
-
-    if (cant > 1) {
-        for (int i = 0; i < cant - 1; i++) {
-            for (int j = 0; j < cant - i - 1; j++) {
-                obj1 = leerPlayer(j);
-                obj2 = leerPlayer(j + 1);
-                // Comprobar si el primer objeto tiene menos puntos que el segundo,
-                // o si tienen los mismos puntos pero el primer nombre es mayor alfabéticamente
-                if (obj1.getPoints() < obj2.getPoints() || (obj1.getPoints() == obj2.getPoints() && obj1.getPlayerName() > obj2.getPlayerName())) {
-                    fseek(Archi1, j * sizeof obj1, SEEK_SET);
-                    fwrite(&obj2, sizeof obj2, 1, Archi1);
-                    fseek(Archi1, (j + 1) * sizeof obj1, SEEK_SET);
-                    fwrite(&obj1, sizeof obj1, 1, Archi1);
-                }
-            }
-        }
-    }
-	fclose(Archi1);
-
-	// Si hay más de 10 registros, eliminar el último
-    if (cant > 10) {
-        FILE* pTemp;
-        FILE* pOriginal;
-        pOriginal = fopen("ranking.dat", "rb");
-        pTemp = fopen("temp.dat", "wb");
-
-        if (pOriginal == NULL || pTemp == NULL) {
-            std::cout << "ERROR AL ABRIR ARCHIVOS original/temp" << std::endl;
-            return;
-        }
-
-        for (int i = 0; i < 10; i++) {
-            fread(&obj1, sizeof(PlayerScore), 1, pOriginal);
-            fwrite(&obj1, sizeof(PlayerScore), 1, pTemp);
-        }
-
-        fclose(pOriginal);
-        fclose(pTemp);
-
-        // Reemplazar el archivo original con el temporal
-        if (remove("ranking.dat") == 0) {
-            if (rename("temp.dat", "ranking.dat") != 0) {
-                std::cerr << "Error al renombrar el archivo temporal." << std::endl;
-                // Manejar el error según sea necesario
-            }
-        }
-        else {
-            std::cerr << "Error al eliminar el archivo original." << std::endl;
-            // Manejar el error según sea necesario
-        }
-    }
-	}
-
-	bool Archirank::savePlayer(const PlayerScore &score){
-	FILE *Archi1;
-	Archi1=fopen("Ranking.dat","ab");
-	if(Archi1==NULL){
-        std::cout << "ERROR AL ESCRIBIR/CREAR RANKING.DAT" << std::endl;
-        return false;
-	}
-bool escritura=fwrite(&score, sizeof(PlayerScore), 1, Archi1);
-fclose(Archi1);
-
-return escritura;
-	}
-
-	PlayerScore Archirank::readPlayer(int pos){
-	PlayerScore obj;
+    ObjJugador ScoreboardFile::leerJugador(int pos){
+	ObjJugador obj;
     FILE* Archi1;
 
     Archi1 = fopen("ranking.dat", "rb");
@@ -111,8 +51,42 @@ return escritura;
     return obj;
 	}
 
-	void Archirank::showTopTen(sf::RenderWindow& window){
-	PlayerScore obj;
+
+	void ScoreboardFile::ordenarRanking() {
+    FILE* archivo = fopen("ranking.dat", "rb");
+    if (!archivo) {
+        std::cerr << "Error al abrir el archivo para lectura" << std::endl;
+        return;
+    }
+
+    std::vector<ObjJugador> jugadores;
+    ObjJugador jugador;
+    while (fread(&jugador, sizeof(ObjJugador), 1, archivo) == 1) {
+        jugadores.push_back(jugador);
+    }
+    fclose(archivo);
+
+    std::sort(jugadores.begin(), jugadores.end(), [](const ObjJugador& a, const ObjJugador& b) {
+        return a.getPuntos() > b.getPuntos() ||
+              (a.getPuntos() == b.getPuntos() && a.getNombreJugador() < b.getNombreJugador());
+    });
+
+    if (jugadores.size() > 10) {
+        jugadores.resize(10);
+    }
+
+    archivo = fopen("ranking.dat", "wb");
+    if (!archivo) {
+        std::cerr << "Error al abrir el archivo para escritura" << std::endl;
+        return;
+    }
+    fwrite(jugadores.data(), sizeof(ObjJugador), jugadores.size(), archivo);
+    fclose(archivo);
+}
+
+
+	void ScoreboardFile::mostrarTop(sf::RenderWindow& window){
+	ObjJugador obj;
     sf::Font font;
     if (!font.loadFromFile("fonts/pixelOperator8.ttf")) {
         return;
@@ -125,55 +99,48 @@ return escritura;
 
     for (int i = 0; i < 10; i++) {
         if (i <= cant) {
-            obj = leerPlayer(i);
-        }
-        else {
-            obj.setPlayerName("AAAAA");
-            obj.setPoints(0);
-
+            obj = leerJugador(i);
         }
 
-        std::string playerName = obj.getPlayerName();
-        int points = obj.getPoints();
+        std::string nombreJugador = obj.getNombreJugador();
+        int puntos = obj.getPuntos();
 
-        // Texto para el número de clasificación
         sf::Text textRank;
         textRank.setFont(font);
         textRank.setString(std::to_string(i + 1));
-        textRank.setCharacterSize(24); // en pixels
+        textRank.setCharacterSize(20); // en pixels
         textRank.setFillColor(sf::Color::White);
         textRank.setOutlineThickness(2);
         textRank.setOutlineColor(sf::Color::Black);
 
-        // Texto para el nombre del jugador
         sf::Text textName;
         textName.setFont(font);
-        textName.setString(playerName);
-        textName.setCharacterSize(24); // en pixels
+        textName.setString(nombreJugador);
+        textName.setCharacterSize(20); // en pixels
         textName.setFillColor(sf::Color::White);
         textName.setOutlineThickness(2);
         textName.setOutlineColor(sf::Color::Black);
 
-        // Texto para los puntos
         sf::Text textPoints;
         textPoints.setFont(font);
-        textPoints.setString(std::to_string(points));
-        textPoints.setCharacterSize(24); // en pixels
+        textPoints.setString(std::to_string(puntos));
+        textPoints.setCharacterSize(20); // en pixels
         textPoints.setFillColor(sf::Color::White);
         textPoints.setOutlineThickness(2);
         textPoints.setOutlineColor(sf::Color::Black);
 
-        // Calcular posición para centrar el número de clasificación
+        if(i==0){textRank.setFillColor(sf::Color::Yellow);
+                 textName.setFillColor(sf::Color::Yellow);
+                 textPoints.setFillColor(sf::Color::Yellow);}
+
         sf::FloatRect rankRect = textRank.getLocalBounds();
         textRank.setOrigin(rankRect.left + rankRect.width / 2.0f, rankRect.top + rankRect.height / 2.0f);
         textRank.setPosition(centerPosition.x - 140, (window.getSize().y / 2.0f) + (30 * i) - (13 * 10));
 
-        // Calcular posición para centrar el nombre del jugador
         sf::FloatRect nameRect = textName.getLocalBounds();
         textName.setOrigin(nameRect.left + nameRect.width / 2.0f, nameRect.top + nameRect.height / 2.0f);
         textName.setPosition(centerPosition.x - 10, (window.getSize().y / 2.0f) + (30 * i) - (13 * 10));
 
-        // Calcular posición para centrar los puntos
         sf::FloatRect pointsRect = textPoints.getLocalBounds();
         textPoints.setOrigin(pointsRect.left + pointsRect.width / 2.0f, pointsRect.top + pointsRect.height / 2.0f);
         textPoints.setPosition(centerPosition.x + 120, (window.getSize().y / 2.0f) + (30 * i) - (13 * 10));
@@ -184,4 +151,4 @@ return escritura;
     }
 	}
 
-*/
+

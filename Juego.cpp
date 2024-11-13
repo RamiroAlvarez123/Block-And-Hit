@@ -1,7 +1,6 @@
 #include "Juego.h"
 #include <iostream>
 
-
 Juego::Juego(b2World& world) : _world(world)
 {
     generateMap();
@@ -27,7 +26,6 @@ Juego::~Juego()
 }
 
 void Juego::update(){
-    // Update Lifes
 	int lifesWidth = 241;
 	int lifesHeight = 55;
 
@@ -76,7 +74,10 @@ void Juego::update(){
         }
     }
 
-    if(_player->isGameWin()){
+    if(_player->inFinish()){
+        _puntos = (_lifes * 200) + _puntos;
+        _scoreboardfile.guardarJugador(ObjJugador(getNombreJugador(), _puntos));
+        _infinish = true;
 
     }
 
@@ -84,6 +85,7 @@ void Juego::update(){
 	for (auto enemy : enemies) {
 		enemy->update();
 		if (enemy->isDead()) {
+            _puntos += 200;
 			enemies.erase(std::remove(enemies.begin(), enemies.end(), enemy), enemies.end());
 			delete enemy;
 		}
@@ -152,12 +154,18 @@ void Juego::respawn() {
 }
 void Juego::reintentar(){
     _reintentar = false;
+    _puntos = 0;
     _lifes = 4;
 
     respawn();
 }
 
+void Juego::setNombreJugador(std::string nombrejugador){
+    _nombreJugador = nombrejugador;
+}
+std::string Juego::getNombreJugador(){return _nombreJugador;}
 bool Juego::getJuego(){ return _juego;}
+bool Juego::getFinish(){return _infinish;}
 bool Juego::getReintentar(){return _reintentar;}
 void Juego::close(){ _juego = false;}
 void Juego::open(){ _juego = true, _pausa = false;;}

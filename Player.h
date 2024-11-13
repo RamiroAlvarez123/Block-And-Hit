@@ -45,7 +45,7 @@ private:
 
 	bool _onGround = false;
 	bool _death = false;
-	bool _gameWin = false;
+	bool _finished = false;
 	bool _onRoof = false;
 
 	FixtureData _fixtureData;
@@ -70,7 +70,7 @@ public:
 
 	void drawFixture(b2Fixture* fixture, sf::RenderWindow& window, sf::Color color);
 	bool isDead();
-	bool isGameWin();
+	bool inFinish();
 	virtual void onBeginContact(b2Fixture* self, b2Fixture* other) override;
 	virtual void onEndContact(b2Fixture* self, b2Fixture* other) override;
 };

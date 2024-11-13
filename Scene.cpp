@@ -17,6 +17,9 @@ void Scene::update() {
     if(_juego->getReintentar()){
         _juego->close();
         _reintentar->open();
+    }if(_juego->getFinish()){
+        _juego->close();
+        _menu->open();
     }
  }
 }
@@ -47,6 +50,7 @@ else if(_nombrejugador->getInNombreJugador()){
             _nombrejugador->update(event);
             if(_nombrejugador->setNombreJugador()){
                 _nombrejugador->close();
+                _juego->setNombreJugador(_nombrejugador->getNombreJugador());
                 _juego->open();
             }
     }

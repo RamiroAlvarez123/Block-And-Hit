@@ -3,6 +3,8 @@
 #include "Structures.h"
 #include "Player.h"
 #include "EnemySpawn.h"
+#include "ScoreboardFile.h"
+#include "ObjJugador.h"
 #include <SFML/Graphics.hpp>
 #include <Box2D/Box2D.h>
 
@@ -27,19 +29,21 @@ private:
     Structures* _structures;
     Player* _player;
     EnemySpawn* _enemySpawn;
-    std::string _playerName = "";
+    ScoreboardFile _scoreboardfile;
+    std::string _nombreJugador = "";
 
 	bool _reintentar = false;
 	bool _showCredits = false;
     bool _juego = false;
     bool _pausa = false;
+    bool _infinish = false;
 
-	sf::RectangleShape* _deathScreen;
-	int _deathScreenOpacity = 0;
+	int _puntos = 0;
 	bool _isFrozen = false;
 	bool _isFadingOut = false;
 public:
     Juego(b2World& world);
+    IniJugador(const std::string& nombreJugador, int puntos);
     ~Juego();
     void update();
     void update(sf::Event event);
@@ -50,7 +54,10 @@ public:
     void spawnEnemies();
     void reintentar();
     void respawn();
+    void setNombreJugador(std::string nombrejugador);
+    std::string getNombreJugador();
     bool getJuego();
+    bool getFinish();
     bool getReintentar();
     void crearJuego();
     bool getPausa();
