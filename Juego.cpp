@@ -195,7 +195,7 @@ void Juego::reintentar(){
     _reintentar = false;
     _puntos = 0;
     _lifes = 4;
-    _tiempo = 240.0f;
+    clock.restart();
     respawn();
 }
 

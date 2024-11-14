@@ -19,7 +19,7 @@ private:
     Scoreboard* _scoreboard;
     NombreJugador* _nombrejugador;
     Win* _win;
-
+    bool _music = true;
 public:
 	Scene(b2World& world);
 

@@ -43,7 +43,6 @@ Enemy::Enemy(b2World& world, b2Vec2 position)
 
 Enemy::~Enemy()
 {
-    //_body->GetWorld()->DestroyBody(_body);
     if (_body) {
         _body->GetWorld()->DestroyBody(_body);
         _body = nullptr;
@@ -85,7 +84,7 @@ void Enemy::update()
         _sprite->setOrigin(_sprite->getGlobalBounds().width / 2.0f, _sprite->getGlobalBounds().height * -1.0f);
 
         if (_deathTimer >= 1) {
-            //body->SetTransform(b2Vec2(_body->GetPosition().x, 1000.0f / pixels_per_meter), _body->GetAngle());
+
             _isDead = true;
             _deathTimer = 0.0f;
             return;

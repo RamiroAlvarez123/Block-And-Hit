@@ -6,7 +6,7 @@
 
 int main(){
 
-   sf::RenderWindow window(sf::VideoMode(800,480), "Block And Hit", sf::Style::Titlebar | sf::Style::Close);
+   sf::RenderWindow window(sf::VideoMode(800,480), "Block And Hit");
     window.setFramerateLimit(60);
 
     std::unique_ptr<b2World> world;

@@ -7,6 +7,12 @@ Menu::Menu(){
      _menuSelectedOpc = -1;
      _inMenu = true;
 
+        if (!_musicMenu.openFromFile("sounds/music.wav"));
+
+	_musicMenu.play();
+	_musicMenu.setVolume(15.0f);
+	_musicMenu.setLoop(true);
+
 	_jugarTexture.loadFromFile("imgs/menu_jugar.jpg");
 	_jugarSprite.setTexture(_jugarTexture);
 
@@ -68,12 +74,18 @@ if (_menuSelectedOpc == 2) {
 	}
 	return false;
 }
-void Menu::open(){
+void Menu::open(bool music){
+    if (!music) {
+		_musicMenu.play();
+	}
 	_menuSelecOpc = 0;
 	_menuSelectedOpc = -1;
 	_inMenu = true;
 }
-void Menu::close(){
+void Menu::close(bool music){
+    if (!music) {
+		_musicMenu.stop();
+	}
 	_inMenu = false;
 	}
 int Menu::getSelectedOpc() const{

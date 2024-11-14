@@ -8,26 +8,23 @@ class Win {
 
 private:
 
-    Juego* _juego;
-
-    float _tiempo = 10.0f;
-    float _tiempoRestante;
-    sf::Clock _clock;
-    sf::Text _timerText;
-
     sf::Texture _winTexture;
     sf::Sprite _winSprite;
+
     sf::Font _font;
+
+    int _selected = -1;
     bool _win = false;
 public:
 
     Win();
 
-    void update();
+    void update(sf::Event event);
     void render(sf::RenderWindow& window);
     bool getWin();
     void open();
     void close();
+    int getSelected();
 
 
 

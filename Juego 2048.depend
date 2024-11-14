@@ -665,7 +665,7 @@
 	<iostream>
 	"Usuario.h"
 
-1731563721 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\main.cpp
+1731570409 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\main.cpp
 	<iostream>
 	"SceneManager.h"
 	<box2d/box2d.h>
@@ -1705,7 +1705,7 @@
 1721413167 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\globalcontactlistener.cpp
 	"GlobalContactListener.h"
 
-1731563337 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\juego.cpp
+1731575627 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\juego.cpp
 	"Juego.h"
 	<iostream>
 
@@ -1729,7 +1729,7 @@
 	"Scene.h"
 	"Menu.h"
 
-1731560851 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\scene.h
+1731576263 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\scene.h
 	<SFML/Graphics.hpp>
 	<Box2D/Box2D.h>
 	"Juego.h"
@@ -1740,7 +1740,7 @@
 	"Win.h"
 	"NombreJugador.h"
 
-1731562845 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\scene.cpp
+1731576333 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\scene.cpp
 	"Scene.h"
 	<iostream>
 
@@ -2113,7 +2113,7 @@
 1731364383 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\reintentar.cpp
 	"Reintentar.h"
 
-1731355436 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\enemy.cpp
+1731569455 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\enemy.cpp
 	"Enemy.h"
 	<iostream>
 
@@ -2137,11 +2137,11 @@
 
 1721413167 D
 
-1731446302 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\menu.h
+1731576263 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\menu.h
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 
-1731446288 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\menu.cpp
+1731576363 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\menu.cpp
 	<iostream>
 	"Menu.h"
 
@@ -3379,12 +3379,12 @@
 1731550281 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\activateenemy.cpp
 	"ActivateEnemy.h"
 
-1731562128 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\win.h
+1731573297 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\win.h
 	<iostream>
 	"Juego.h"
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 
-1731563395 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\win.cpp
+1731576728 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\win.cpp
 	"Win.h"
 

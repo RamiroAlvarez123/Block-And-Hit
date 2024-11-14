@@ -21,21 +21,18 @@ void Scene::update() {
     }if(_juego->getFinish()){
         _juego->close();
         _win->open();
-
-    }if(!_win->getWin()){
-        _win->close();
-        _menu->open();
     }
+
  }
 }
 
 void Scene::update(sf::Event event) {
-
 if(_menu->getMenu()){
+
         _menu->update(event);
 
     if(_menu->getSelectedOpc() == 0){
-        _menu->close();
+        _menu->close(_music);
 
         if (_juego != nullptr) {
 		delete _juego;
@@ -44,11 +41,12 @@ if(_menu->getMenu()){
     _nombrejugador->open();
 
     }else if(_menu->getSelectedOpc() == 1){
-        _menu->close();
+        _menu->close(_music);
         _scoreboard->open();
 
     }else if(_menu->getSelectedOpc() == 2){
-        _menu->close();
+        _menu->close(_music);
+
      }
 }
 else if(_nombrejugador->getInNombreJugador()){
@@ -64,7 +62,7 @@ else if(_scoreboard->getScoreboard()){
         _scoreboard->update(event);
     if(_scoreboard->getSelectOpc() == 2){
         _scoreboard->close();
-        _menu->open();
+        _menu->open(_music);
     }
 }
 
@@ -100,6 +98,13 @@ else if(_juego->getJuego()){
             _pausa->open();
         }
  }
+else if(_win->getWin()){
+        _win->update(event);
+        if(_win->getSelected() == 0){
+            _win->close();
+            _menu->open();
+        }
+     }
 
 }
 
@@ -125,9 +130,11 @@ void Scene::render(sf::RenderWindow& window)
         _juego->render(window);
         _pausa->render(window);
     }
+
     if(_win->getWin()){
         _win->render(window);
     }
+
 }
 
 bool Scene::salir() const{
