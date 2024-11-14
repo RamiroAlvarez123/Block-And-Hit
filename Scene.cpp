@@ -32,7 +32,7 @@ if(_menu->getMenu()){
         _menu->update(event);
 
     if(_menu->getSelectedOpc() == 0){
-        _menu->close(_music);
+        _menu->close();
 
         if (_juego != nullptr) {
 		delete _juego;
@@ -41,11 +41,11 @@ if(_menu->getMenu()){
     _nombrejugador->open();
 
     }else if(_menu->getSelectedOpc() == 1){
-        _menu->close(_music);
+        _menu->close();
         _scoreboard->open();
 
     }else if(_menu->getSelectedOpc() == 2){
-        _menu->close(_music);
+        _menu->close();
 
      }
 }
@@ -62,7 +62,7 @@ else if(_scoreboard->getScoreboard()){
         _scoreboard->update(event);
     if(_scoreboard->getSelectOpc() == 2){
         _scoreboard->close();
-        _menu->open(_music);
+        _menu->open();
     }
 }
 

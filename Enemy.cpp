@@ -57,39 +57,51 @@ void Enemy::update()
         _frame = 0;
     }
 
-    _sprite->setTextureRect({ 0 + (int)_frame * 51, 31, 17, 18 });
-
-    _velocity = _body->GetLinearVelocity();
-
-    if (std::abs(_velocity.x) <= 0.02f) {
-        _moveSpeed *= -1.0f;
+    // Actualiza el sprite de animación solo si el enemigo no ha sido golpeado
+    if (!_isHit) {
+        _sprite->setTextureRect({ 0 + (int)_frame * 51, 31, 17, 18 });
     }
 
-    if (_velocity.x < 0) {
-        _sprite->setScale(-1, 1);
+    // Si el enemigo no está marcado como "muerto", continúa su movimiento
+    if (!_isDead) {
+        _velocity = _body->GetLinearVelocity();
+
+        if (std::abs(_velocity.x) <= 0.02f) {
+            _moveSpeed *= -1.0f;
+        }
+
+        if (_velocity.x < 0) {
+            _sprite->setScale(-1, 1);
+        } else if (_velocity.x > 0) {
+            _sprite->setScale(1, 1);
+        }
+
+        _velocity.x = _moveSpeed;
+        _body->SetLinearVelocity(_velocity);
     }
-    else if (_velocity.x > 0) {
-        _sprite->setScale(1, 1);
-    }
 
-    _velocity.x = _moveSpeed;
-
-    _body->SetLinearVelocity(_velocity);
-
-
+    // Si el enemigo es golpeado, inicia el temporizador de muerte y actualiza su sprite
     if (_isHit) {
+    //std::cout << std::endl << "Vidas del bichito: " << vidas << std::endl;
+
+    if (vidas > 0) {
+        vidas -= 1;  // Reduce las vidas
+        _sprite->setTextureRect({ 53, 59, 14, 12 });
+        _isHit = false; // Resetea el estado de golpe para evitar el decremento continuo
+
+    } else if (vidas <= 0) {
+        // Cambia el sprite y empieza el temporizador de muerte
+        _sprite->setTextureRect({ 53, 59, 14, 12 });
         _deathTimer += 0.07f;
-        _sprite->setTextureRect({ 112, 208, 32, 16 });
 
-        _sprite->setOrigin(_sprite->getGlobalBounds().width / 2.0f, _sprite->getGlobalBounds().height * -1.0f);
-
-        if (_deathTimer >= 1) {
-
+        // Después de un tiempo, marca al enemigo como muerto
+        if (_deathTimer >= 1.0f) {
             _isDead = true;
             _deathTimer = 0.0f;
             return;
         }
     }
+}
 }
 
 void Enemy::render(sf::RenderWindow& window)
@@ -103,14 +115,31 @@ void Enemy::onBeginContact(b2Fixture* self, b2Fixture* other)
 {
     FixtureData* data = (FixtureData*)other->GetUserData().pointer;
 
-    if(data->type == FixtureDataType::Player) {
-        _isHit = true;
+    // Detecta si el fixture con el que colisiona es el escudo del jugador
+    if (data && data->type == FixtureDataType::PlayerShield) {
+        _isHit = true;  // Marca al enemigo como golpeado
+
+        // Obtiene la posición del escudo (otro objeto)
+        b2Vec2 shieldPosition = other->GetBody()->GetPosition();
+        b2Vec2 enemyPosition = _body->GetPosition();
+
+        // Aplica un impulso para simular el empuje por el escudo
+        b2Vec2 pushForce;
+
+        // Determina la dirección del empuje en función de la posición relativa
+        if (shieldPosition.x < enemyPosition.x) { // El escudo está a la izquierda
+            pushForce.Set(10.0f, 0.0f);
+        } else { // El escudo está a la derecha
+            pushForce.Set(-10.0f, 0.0f);
+        }
+
+        _body->ApplyLinearImpulseToCenter(pushForce, true);
     }
 }
-
 void Enemy::onEndContact(b2Fixture* self, b2Fixture* other)
 {
     FixtureData* data = (FixtureData*)other->GetUserData().pointer;
+    // Puedes añadir más lógica aquí si necesitas detectar cuándo termina una colisión
 }
 
 bool Enemy::isDead() {

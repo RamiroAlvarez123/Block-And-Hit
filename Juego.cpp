@@ -85,6 +85,9 @@ void Juego::update(){
 
 
     if(_player->inFinish()){
+        _buffer.loadFromFile("sounds/victory.wav");
+        _sound.setBuffer(_buffer);
+        _sound.play();
         _puntos = (_lifes * 200) + _puntos + _tiempoRestante;
         _scoreboardfile.guardarJugador(ObjJugador(getNombreJugador(), _puntos));
         _infinish = true;

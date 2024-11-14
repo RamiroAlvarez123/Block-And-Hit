@@ -15,7 +15,7 @@ private:
 	float _height = 10.0f;
 
 	b2Vec2 _velocity{ 0.0f , 0.0f };
-	float _moveSpeed = 2.0f;
+	float _moveSpeed = 4.0f;
 
 	float _stateTime = 0.0f;
 

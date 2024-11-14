@@ -3,19 +3,19 @@
 #include <box2d/box2d.h>
 #include "constants.h"
 #include "GlobalContactListener.h"
-
 class Enemy : public ContactListener
 {
 private:
 	sf::Texture _texture;
 	sf::Sprite* _sprite;
 	b2Body* _body;
-
-	float _width = 18.0f;
-	float _height = 10.0f;
+	float _width = 6.0f;
+	float _height = 4.0f;
 
 	b2Vec2 _velocity{ 0.0f , 0.0f };
 	float _moveSpeed = 2.0f;
+
+	int vidas=2;
 
 	float _stateTime = 0.0f;
 
@@ -41,4 +41,5 @@ public:
 	virtual void onEndContact(b2Fixture* self, b2Fixture* other) override;
 
 };
+
 

@@ -1,6 +1,7 @@
 #include "Win.h"
 
 Win::Win() {
+
     _winTexture.loadFromFile("imgs/Win.png");
     _winSprite.setTexture(_winTexture);
     _font.loadFromFile("fonts/PixelOperator8-Bold.ttf");
@@ -16,6 +17,7 @@ void Win::update(sf::Event event) {
 }
 
 void Win::render(sf::RenderWindow& window) {
+
     sf::View currentView = window.getView();
     sf::Vector2f centerPosition = currentView.getCenter();
     sf::Vector2f viewSize = currentView.getSize();

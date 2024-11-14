@@ -11,6 +11,9 @@ private:
     sf::Texture _winTexture;
     sf::Sprite _winSprite;
 
+    sf::SoundBuffer _buffer;
+	sf::Sound _sound;
+
     sf::Font _font;
 
     int _selected = -1;

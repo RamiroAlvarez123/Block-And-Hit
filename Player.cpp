@@ -55,12 +55,14 @@ Player::Player(b2World& world, b2Vec2 position) : _startingPosition(position)
 	_topFixture = _body->CreateFixture(&fixtureDef);
 
 	// Create SFML Sprite
-	_texture.loadFromFile("imgs/SpriteSheetTimesTwo.png");
+	_texture.loadFromFile("imgs/knight.png");
+	_textureShield.loadFromFile("imgs/shield2.png");
 	_sprite = new sf::Sprite();
 	_sprite->setTexture(_texture);
-	_sprite->setTextureRect({ 64, 0 , 32, 64 });
-	_sprite->setOrigin(_sprite->getGlobalBounds().width / 1.0f, _sprite->getGlobalBounds().height / 2.0f);
-	_sprite->setScale(-1, 1);
+	_sprite->setTextureRect({ 7, 7 , 20, 22 });
+	_sprite->setOrigin(_sprite->getGlobalBounds().width / 2.0f, _sprite->getGlobalBounds().height / 2.0f);
+	_sprite->setScale(1, 1);
+	_shieldFixture == nullptr;
 
 	_body->GetUserData().pointer = reinterpret_cast<uintptr_t>(_sprite);
 }
@@ -87,31 +89,37 @@ void Player::cmd()
 		isMoving = true;
 	}
 
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
+		_state = PlayerState::Defend;
+		isMoving = true;
+	}
+
 	if (!_didJump) {
 		if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Up))&& _onGround) {
 			_didJump = true;
 			_isJumping = true;
 			isMoving = true;
 			_velocity.y += -20.0f;
-			_sprite->setTextureRect({ 0, 96, 32, 64 });
+			_sprite->setTextureRect({ 6, 71, 23, 20 });
 			_state = PlayerState::Jump;
 		}
 	}
 
 	if (_didJump) {
 
-		if (_velocity.y > -36.0f && _isJumping) {
+		if (_velocity.y > -28.0f && _isJumping) {
 			_velocity.y += -1.0f;
-			if (_velocity.y <= -36.0f) {
+			if (_velocity.y <= -28.0f) {
 				_isJumping = false;
 				_isFalling = true;
 				isMoving = true;
 			}
+
 		}
 		if (_isFalling) {
 			_velocity.y += 1.0f;
 			isMoving = true;
-			_sprite->setTextureRect({ 64, 96, 32, 64 });
+			_sprite->setTextureRect({ 6, 71, 23, 22 });
 			if (_velocity.y == 0) {
 				_didJump = false;
 				_isJumping = false;
@@ -120,7 +128,7 @@ void Player::cmd()
 
 			else if (_onRoof) {
 				_velocity.y = -5.0f;
-				_sprite->setTextureRect({ 64, 96, 32, 64 });
+				_sprite->setTextureRect({ 6, 71, 23, 22 });
 				_didJump = false;
 				_isJumping = false;
 				_isFalling = false;
@@ -137,7 +145,7 @@ void Player::cmd()
 	if(isMoving && _onGround){
         _buffer.loadFromFile("sounds/walk.wav");
         _sound.setBuffer(_buffer);
-    if (clock.getElapsedTime() >= cooldown) {
+    if (clock.getElapsedTime() >= cooldownWalk) {
         _sound.play();
         clock.restart();
         }
@@ -146,39 +154,67 @@ void Player::cmd()
 
 void Player::update()
 {
+    if (_shieldActive) {
+        _shieldTimer += 0.016f;  // Asumiendo que update se llama a ~60 FPS
+        if (_shieldTimer >= _shieldDuration) {
+            deactivateShield();  // Desactiva el escudo después de la duración
+            _shieldTimer = 0.0f; // Reinicia el temporizador
+        }
+    }
+
+    if (_shieldCooldown) {
+        _shieldTimer += 0.016f;  // Asumiendo que update se llama a ~60 FPS
+        if (_shieldTimer >= _shieldCooldownTime) {
+            _shieldCooldown = false;  // Finaliza el cooldown
+            _shieldTimer = 0.0f;      // Reinicia el temporizador
+            std::cout << "Escudo listo para ser activado nuevamente." << std::endl;
+        }
+    }
 
 	switch (_state) {
 	case PlayerState::Idle:
-		_sprite->setTextureRect({ 64, 0 , 32, 64 });
+		_sprite->setTexture(_texture);
+		_sprite->setTextureRect({ 7, 7, 23, 30 });
+		_sprite->setOrigin(3.5f, 4.0f);
 		break;
 	case PlayerState::Move:
-
+		_sprite->setTexture(_texture);
 		_frame += 0.2f;
 
-		if (_frame > 3) {
-			_frame = 0;
-		}
+		if (_frame > 3) _frame = 0;
 
-		if (!_isJumping && _onGround) {
-			_sprite->setTextureRect({ 64 + int(_frame) * 64, 0 , 32, 64 });
-		}
+		_sprite->setTextureRect({ 6 + int(_frame) * 33, 71, 24, 21 });
+		_sprite->setOrigin(3.0f, 8.5f);
 
-		if (_velocity.x < 0) {
-			_sprite->setScale(1, 1);
-		}
-		else if (_velocity.x > 0) {
-			_sprite->setScale(-1, 1);
-		}
+		if (_velocity.x < 0) _sprite->setScale(-1, 1);
+		else if (_velocity.x > 0) _sprite->setScale(1, 1);
+		//deactivateShield();
+		break;
+
+		case PlayerState::Defend:
+		if (_velocity.x < 0) _sprite->setScale(-1, 1);
+		else if (_velocity.x > 0) _sprite->setScale(1, 1);
+		activateShield();
+		_sprite->setOrigin(5.0f, 2.0f);
 		break;
 	}
 
-	_body->SetLinearVelocity(_velocity);
 
+	// Ajustar el fixture según la textura
+    b2PolygonShape shape;
+    shape.SetAsBox((_sprite->getGlobalBounds().width / 2.0f) / pixels_per_meter, (_sprite->getGlobalBounds().height / 1.85f) / pixels_per_meter);
+    _body->DestroyFixture(_spikeFixture); // Elimina el fixture anterior
+    b2FixtureDef fixtureDef;
+    fixtureDef.shape = &shape;
+    fixtureDef.density = 1.0f;
+    fixtureDef.friction = 0.3f;
+    fixtureDef.userData.pointer = (uintptr_t)&_fixtureData;
+    _spikeFixture = _body->CreateFixture(&fixtureDef); // Crea un nuevo fixture actualizado
+
+	_body->SetLinearVelocity(_velocity);
 	_velocity.x = 0.0f;
 
-	if (_sprite->getPosition().y >= 700) {
-		_death = true;
-	}
+
 }
 
 void Player::render(sf::RenderWindow& window) {
@@ -212,7 +248,16 @@ void Player::onBeginContact(b2Fixture* self, b2Fixture* other)
 	if (!data) {
 		return;
 	}
+	   if (_shieldFixture != nullptr && self == _shieldFixture && data->type == FixtureDataType::Enemy && _state == PlayerState::Defend) {
+        b2Body* enemyBody = other->GetBody();
 
+        // Calcular el empuje en función de la orientación del sprite
+        float pushForceX = (_sprite->getScale().x > 0) ? 10.0f : -10.0f;
+        b2Vec2 pushForce(pushForceX, 0.0f);
+
+        // Aplicar impulso al enemigo en la dirección correcta
+        enemyBody->ApplyLinearImpulseToCenter(pushForce, true);
+    }
 	if (_spikeFixture == self && data->type == FixtureDataType::Spike) {
 		_death = true;
 	}
@@ -225,19 +270,19 @@ void Player::onBeginContact(b2Fixture* self, b2Fixture* other)
 	else if (self == _topFixture && (data->type == FixtureDataType::GroundTile)) {
 		_onRoof = true;
 	}
-    else if(!_isBlocking &&(data->type == FixtureDataType::Enemy)) {
+    if ((data->type == FixtureDataType::Enemy || data->type == FixtureDataType::RedEnemy) && (_state != PlayerState::Defend || _shieldFixture == nullptr)) {
         _death = true;
     }
-    else if(!_isBlocking &&(data->type == FixtureDataType::RedEnemy)) {
+     if (_sprite->getPosition().y >= 430){
         _death = true;
-    }
+        }
 }
 
 void Player::onEndContact(b2Fixture* self, b2Fixture* other)
 {
 	FixtureData* data = (FixtureData*)other->GetUserData().pointer;
 
-	if (!data) {
+		if (!data) {
 		return;
 	}
 
@@ -259,8 +304,42 @@ void Player::onEndContact(b2Fixture* self, b2Fixture* other)
         _sound.play();
 
 	}
+}
+
+void Player::activateShield() {
+    if (!_shieldCooldown && !_shieldActive) {// Solo activa si el escudo no está en cooldown
+            _sprite->setTexture(_textureShield);
+		_sprite->setTextureRect({ 1, 1, 16, 16 });
+        b2PolygonShape shieldShape;
+        shieldShape.SetAsBox(0.3f, 0.5f, b2Vec2(0.6f, 0.0f), 0.0f);
+
+        b2FixtureDef shieldFixtureDef;
+        shieldFixtureDef.shape = &shieldShape;
+        shieldFixtureDef.isSensor = true;
+
+        FixtureData* shieldFixtureData = new FixtureData();
+        shieldFixtureData->type = FixtureDataType::PlayerShield;
+        shieldFixtureData->listener = this;
+        shieldFixtureDef.userData.pointer = reinterpret_cast<uintptr_t>(shieldFixtureData);
+
+        _shieldFixture = _body->CreateFixture(&shieldFixtureDef);
+        _shieldActive = true;
+        _shieldCooldown = true;  // Inicia el cooldown después de activar
+        _shieldTimer = 0.0f;     // Reinicia el temporizador
+
+    }
 
 }
+
+void Player::deactivateShield() {
+    if (_shieldFixture != nullptr) {
+        //std::cout << "Desactivando escudo" << std::endl;
+        _body->DestroyFixture(_shieldFixture);
+        _shieldFixture = nullptr;
+        _shieldActive = false;
+    }
+}
+
 
 bool Player::isDead() {
 	return _death;

@@ -9,21 +9,27 @@ enum class PlayerState {
 	Idle = 0,
 	Move,
 	Jump,
+	Defend,
 };
 
 class Player : public ContactListener
 {
 private:
+
 	sf::Texture _texture;
+	sf::Texture _textureShield;
 	sf::Sprite* _sprite;
 	sf::SoundBuffer _buffer;
 	sf::Sound _sound;
 	sf::Clock clock;
-	sf::Time cooldown = sf::seconds(0.3f);
+	sf::Time cooldownWalk = sf::seconds(0.3f);
 	b2Body* _body;
 
-	float _width = 32.0f;
-	float _height = 54.0f;
+    sf::Time cooldown = sf::seconds(8.0f);
+	b2Fixture* _shieldFixture; // Fixture del escudo
+
+	float _width = 3.0f;
+	float _height = 32.0f;
 
 	b2Vec2 _startingPosition;
 
@@ -33,6 +39,11 @@ private:
 	bool _isDucking = false;
 	bool _didJump = false;
     bool _isBlocking = false;
+    bool _shieldActive = false;
+    bool _shieldCooldown = false;
+    float _shieldCooldownTime = 3.0f;
+    float _shieldTimer = 0.0f;
+    float _shieldDuration = 2.0f;
 
 	b2Vec2 _velocity{ 0.0f , 0.0f };
 	float _moveSpeed = 10.0f;
@@ -63,7 +74,10 @@ public:
 	sf::Vector2f getPosition();
 
 	void update();
-
+    // Métodos para activar y desactivar el escudo
+    void activateShield();
+    void deactivateShield();
+    //
 	void render(sf::RenderWindow& window);
 
 	void cmd();

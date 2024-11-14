@@ -80,7 +80,7 @@ void RedEnemy::update()
 
     if (_isHit) {
         _deathTimer += 0.07f;
-        _sprite->setTextureRect({ 112, 208, 32, 16 });
+        _sprite->setTextureRect({ 50, 59, 18, 12 });
 
         _sprite->setOrigin(_sprite->getGlobalBounds().width / 2.0f, _sprite->getGlobalBounds().height * -1.0f);
 
@@ -106,6 +106,21 @@ void RedEnemy::onBeginContact(b2Fixture* self, b2Fixture* other)
 
     if(data->type == FixtureDataType::Player) {
         _isHit = true;
+        // Obtiene la posición del escudo (otro objeto)
+        b2Vec2 shieldPosition = other->GetBody()->GetPosition();
+        b2Vec2 enemyPosition = _body->GetPosition();
+
+        // Aplica un impulso para simular el empuje por el escudo
+        b2Vec2 pushForce;
+
+        // Determina la dirección del empuje en función de la posición relativa
+        if (shieldPosition.x < enemyPosition.x) { // El escudo está a la izquierda
+            pushForce.Set(10.0f, 0.0f);
+        } else { // El escudo está a la derecha
+            pushForce.Set(-10.0f, 0.0f);
+        }
+
+        _body->ApplyLinearImpulseToCenter(pushForce, true);
     }
 }
 
