@@ -665,7 +665,7 @@
 	<iostream>
 	"Usuario.h"
 
-1731423462 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\main.cpp
+1731535879 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\main.cpp
 	<iostream>
 	"SceneManager.h"
 	<box2d/box2d.h>
@@ -1307,7 +1307,7 @@
 	<tmxlite/detail/Log.hpp>
 	<ctype.h>
 
-1731362530 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\tiledmap.cpp
+1731554587 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\tiledmap.cpp
 	"TiledMap.h"
 	<iostream>
 
@@ -1699,21 +1699,22 @@
 	<new>
 	<stdint.h>
 
-1731344506 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\globalcontactlistener.h
+1731552674 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\globalcontactlistener.h
 	<box2d/box2d.h>
 
 1721413167 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\globalcontactlistener.cpp
 	"GlobalContactListener.h"
 
-1731534084 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\juego.cpp
+1731552521 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\juego.cpp
 	"Juego.h"
 	<iostream>
 
-1731533856 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\juego.h
+1731541012 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\juego.h
 	"TiledMap.h"
 	"Structures.h"
 	"Player.h"
 	"EnemySpawn.h"
+	"RedEnemyspawn.h"
 	"ScoreboardFile.h"
 	"ObjJugador.h"
 	<SFML/Graphics.hpp>
@@ -1931,7 +1932,7 @@
 	"b2_api.h"
 	"b2_joint.h"
 
-1731534725 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\terrain.cpp
+1731535065 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\terrain.cpp
 	"Terrain.h"
 
 1731270592 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\terrain.h
@@ -1953,11 +1954,11 @@
 	<vector>
 	<tmxlite/ObjectGroup.hpp>
 
-1731273500 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\structures.cpp
+1731552729 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\structures.cpp
 	"Structures.h"
 	<iostream>
 
-1731273507 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\structures.h
+1731552674 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\structures.h
 	<vector>
 	<box2d/box2d.h>
 	"Obstacle.h"
@@ -2083,18 +2084,18 @@
 	<SFML/Audio/Export.hpp>
 	<string>
 
-1731504091 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\player.h
+1731552674 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\player.h
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	<box2d/box2d.h>
 	"constants.h"
 	"GlobalContactListener.h"
 
-1731504091 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\player.cpp
+1731552694 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\player.cpp
 	"Player.h"
 	<iostream>
 
-1731271349 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\finish.cpp
+1731542771 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\finish.cpp
 	"Finish.h"
 
 1731271358 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\finish.h
@@ -2121,10 +2122,10 @@
 	"constants.h"
 	"GlobalContactListener.h"
 
-1721413167 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\enemyspawn.cpp
+1731537837 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\enemyspawn.cpp
 	"EnemySpawn.h"
 
-1721413167 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\enemyspawn.h
+1731537822 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\enemyspawn.h
 	<vector>
 	<box2d/box2d.h>
 	"Enemy.h"
@@ -3344,4 +3345,36 @@
 	"ObjJugador.h"
 	<iostream>
 	<cstring>
+
+1731541775 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\redenemyspawn.cpp
+	"RedEnemySpawn.h"
+
+1731539379 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\redenemyspawn.h
+	<vector>
+	<box2d/box2d.h>
+	"RedEnemy.h"
+	<tmxlite/Map.hpp>
+	<tmxlite/Layer.hpp>
+	<tmxlite/TileLayer.hpp>
+	<tmxlite/ObjectGroup.hpp>
+
+1731539453 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\redenemy.h
+	<SFML/Graphics.hpp>
+	<box2d/box2d.h>
+	"constants.h"
+	"GlobalContactListener.h"
+
+1731540883 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\redenemy.cpp
+	"RedEnemy.h"
+	<iostream>
+
+1731550334 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\activateenemy.h
+	"GlobalContactListener.h"
+	"constants.h"
+	<box2d/box2d.h>
+	<vector>
+	<tmxlite/ObjectGroup.hpp>
+
+1731550281 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\activateenemy.cpp
+	"ActivateEnemy.h"
 

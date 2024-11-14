@@ -3,6 +3,7 @@
 #include "Structures.h"
 #include "Player.h"
 #include "EnemySpawn.h"
+#include "RedEnemyspawn.h"
 #include "ScoreboardFile.h"
 #include "ObjJugador.h"
 #include <SFML/Graphics.hpp>
@@ -34,6 +35,7 @@ private:
     Structures* _structures;
     Player* _player;
     EnemySpawn* _enemySpawn;
+    RedEnemySpawn* _redEnemySpawn;
     ScoreboardFile _scoreboardfile;
     std::string _nombreJugador = "";
 

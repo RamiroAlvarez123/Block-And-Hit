@@ -30,6 +30,7 @@ Juego::~Juego()
 	delete _structures;
 	delete _player;
 	delete _enemySpawn;
+	delete _redEnemySpawn;
 }
 
 void Juego::update(){
@@ -100,6 +101,16 @@ void Juego::update(){
 		}
 	}
 
+	auto& redenemies = _redEnemySpawn->getEnemies();
+	for (auto renemy : redenemies) {
+		renemy->update();
+		if (renemy->isDead()) {
+            _puntos += 300;
+			redenemies.erase(std::remove(redenemies.begin(), redenemies.end(), renemy), redenemies.end());
+			delete renemy;
+		}
+	}
+
 
 }
 void Juego::update(sf::Event event){
@@ -112,8 +123,8 @@ bool Juego::getPausa(){return _pausa;}
 void Juego::render(sf::RenderWindow& window){
     sf::View view = window.getView();
 	sf::Vector2f playerPos = getCameraPosition();
-	playerPos.x += 150; // La posicion del personaje + 150 para que se vea mas atras el personaje con respecto al centro.
-	playerPos.y = (float(640) / 2.7); // El alto de la ventana dividido entre 2 para dejarlo fijo al medio.
+	playerPos.x += 150;
+	playerPos.y = (float(640) / 2.7);
 	view.setCenter(playerPos);
 	window.setView(view);
 
@@ -134,6 +145,12 @@ void Juego::render(sf::RenderWindow& window){
 	for (auto enemy : enemies) {
 		enemy->render(window);
 	}
+
+	auto& redenemies = _redEnemySpawn->getEnemies();
+	for (auto renemy : redenemies) {
+		renemy->render(window);
+	}
+
 
     sf::Vector2f viewCorner = window.mapPixelToCoords(sf::Vector2i(0, 0), view);
 	_lifesSprite.setPosition(viewCorner.x + 15, viewCorner.y);
@@ -162,6 +179,7 @@ void Juego::spawnPlayer() {
 }
 void Juego::spawnEnemies(){
     _enemySpawn = new EnemySpawn(_world, _tiledMap->getMap());
+    _redEnemySpawn = new RedEnemySpawn(_world, _tiledMap->getMap());
 }
 void Juego::respawn() {
     if(_lifes >1){
@@ -170,6 +188,7 @@ void Juego::respawn() {
 
     }
     delete _enemySpawn;
+    delete _redEnemySpawn;
 	spawnEnemies();
 }
 void Juego::reintentar(){

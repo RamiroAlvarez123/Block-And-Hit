@@ -10,7 +10,7 @@ int main(){
     window.setFramerateLimit(60);
 
     std::unique_ptr<b2World> world;
-	b2Vec2 gravity(0.0f, 980.0f);
+	b2Vec2 gravity(0.0f, 880.0f);
 	world = std::make_unique<b2World>(gravity);
 	world->SetContactListener(new GlobalContactListener());
 

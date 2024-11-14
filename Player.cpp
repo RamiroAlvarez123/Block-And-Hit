@@ -139,7 +139,7 @@ void Player::cmd()
         _sound.setBuffer(_buffer);
     if (clock.getElapsedTime() >= cooldown) {
         _sound.play();
-        clock.restart(); // Reiniciar el reloj para el próximo cooldown
+        clock.restart();
         }
 	}
 }
@@ -228,6 +228,9 @@ void Player::onBeginContact(b2Fixture* self, b2Fixture* other)
     else if(!_isBlocking &&(data->type == FixtureDataType::Enemy)) {
         _death = true;
     }
+    else if(!_isBlocking &&(data->type == FixtureDataType::RedEnemy)) {
+        _death = true;
+    }
 }
 
 void Player::onEndContact(b2Fixture* self, b2Fixture* other)
@@ -250,7 +253,12 @@ void Player::onEndContact(b2Fixture* self, b2Fixture* other)
         _sound.play();
 
 	}
+	else if(_isBlocking && (data->type == FixtureDataType::RedEnemy)){
+        _buffer.loadFromFile("sounds/hit.wav");
+        _sound.setBuffer(_buffer);
+        _sound.play();
 
+	}
 
 }
 

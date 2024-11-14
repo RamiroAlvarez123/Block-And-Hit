@@ -1,117 +1,114 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="200" height="30" tilewidth="16" tileheight="16" infinite="0" nextlayerid="11" nextobjectid="135">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="240" height="30" tilewidth="16" tileheight="16" infinite="0" nextlayerid="11" nextobjectid="165">
  <tileset firstgid="1" name="Tileset" tilewidth="16" tileheight="16" tilecount="48" columns="8">
   <image source="tiles/Tileset.png" width="128" height="96"/>
  </tileset>
  <tileset firstgid="49" source="Decors.tsx"/>
  <tileset firstgid="147" source="tileset 2.tsx"/>
- <imagelayer id="5" name="Cielo" offsetx="0.666667" offsety="-1.33333" repeatx="1">
+ <imagelayer id="5" name="Cielo" offsetx="-1.33333" offsety="-2.33333" repeatx="1">
   <image source="../imgs/cielo.jpg" width="768" height="432"/>
  </imagelayer>
- <imagelayer id="2" name="Montaña" offsetx="6.32967" offsety="228.001" repeatx="1">
+ <imagelayer id="2" name="Montaña" offsetx="-0.67033" offsety="224.001" repeatx="1">
   <image source="../imgs/Montania.png" width="320" height="192"/>
  </imagelayer>
- <imagelayer id="10" name="Cueva" offsetx="2351.67" offsety="0.666667">
+ <imagelayer id="10" name="Cueva" offsetx="2831.67" offsety="0.666667">
   <image source="../imgs/cueva2.png" width="850" height="479"/>
  </imagelayer>
- <imagelayer id="4" name="Extension" offsetx="-0.66634" offsety="406" repeatx="1">
+ <imagelayer id="4" name="Extension" offsetx="-0.66634" offsety="404" repeatx="1">
   <image source="../imgs/Extension.png" width="433" height="148"/>
  </imagelayer>
- <layer id="1" name="Capa de patrones 1" width="200" height="30">
+ <layer id="1" name="Capa de patrones 1" width="240" height="30">
   <data encoding="base64" compression="zlib">
-   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
+   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
   </data>
  </layer>
  <objectgroup id="6" name="Capa de Objetos 1">
-  <object id="1" name="Terrain" x="0.75" y="368.5" width="126.5" height="45.5"/>
-  <object id="4" name="Terrain" x="1" y="256.5" width="14.5" height="111"/>
-  <object id="5" name="Terrain" x="194" y="369.333" width="44" height="109.333"/>
-  <object id="6" name="Terrain" x="273.333" y="353.333" width="141.333" height="45.3333"/>
-  <object id="7" name="Terrain" x="480.167" y="353.333" width="16" height="125.333"/>
-  <object id="14" name="Terrain" x="704.333" y="303.833" width="270.667" height="30.5"/>
-  <object id="50" name="Spike" x="0.333333" y="464.667" width="192.667" height="14.6667"/>
-  <object id="51" name="Spike" x="239.333" y="447.333" width="240" height="32"/>
-  <object id="57" name="Spike" x="672.337" y="437.167" width="350" height="42.3333"/>
-  <object id="61" name="Spike" x="1168" y="434.833" width="479" height="42.3333"/>
-  <object id="62" name="Spike" x="496.667" y="447.667" width="45.5" height="32"/>
-  <object id="63" name="Spike" x="560.75" y="448" width="45.5" height="32"/>
-  <object id="64" name="Spike" x="625.25" y="447" width="30.5" height="32"/>
-  <object id="65" name="Spike" x="1696.58" y="447.333" width="61.5" height="32"/>
-  <object id="66" name="Spike" x="1810.58" y="462.667" width="60.1667" height="15.3333"/>
-  <object id="67" name="Spike" x="1920.58" y="447.333" width="60.8333" height="32"/>
-  <object id="68" name="Spike" x="2033.92" y="462.667" width="267.5" height="16"/>
-  <object id="69" name="Spike" x="2735.92" y="319.333" width="367.5" height="15.3333"/>
-  <object id="72" name="Terrain" x="1024" y="255.743">
-   <polygon points="0,0 15.75,0 16,-32.3765 127.75,-32.6335 128.25,0 143.75,0.256957 144,-49.0787 96.25,-49.0787 93.0833,-253.903 48,-253.493 48,-48.8217 0.25,-48.8217"/>
-  </object>
-  <object id="73" name="Terrain" x="1216.17" y="319.5" width="47.667" height="32"/>
-  <object id="74" name="Terrain" x="1312.67" y="351.5" width="158.667" height="32.5"/>
-  <object id="75" name="Terrain" x="1504.17" y="335.5" width="47.667" height="32"/>
-  <object id="77" name="Terrain" x="1583.67" y="320.5" width="47.667" height="32"/>
-  <object id="78" name="Terrain" x="1648.17" y="305" width="47.667" height="174.5"/>
-  <object id="79" name="Terrain" x="1760.17" y="289.5" width="47.667" height="92.5"/>
-  <object id="80" name="Terrain" x="1760.67" y="416.5" width="47.667" height="62.5"/>
-  <object id="81" name="Terrain" x="1872.67" y="417.75" width="47.667" height="62.5"/>
-  <object id="83" name="Terrain" x="1984" y="479.5">
+  <object id="61" name="Spike" x="1662.75" y="434.833" width="464.25" height="42.3333"/>
+  <object id="65" name="Spike" x="2176.58" y="447.333" width="61.5" height="32"/>
+  <object id="66" name="Spike" x="2290.58" y="462.667" width="60.1667" height="15.3333"/>
+  <object id="67" name="Spike" x="2400.58" y="447.333" width="60.8333" height="32"/>
+  <object id="68" name="Spike" x="2513.92" y="462.667" width="267.5" height="16"/>
+  <object id="73" name="Terrain" x="1696.17" y="319.5" width="47.667" height="32"/>
+  <object id="74" name="Terrain" x="1776.34" y="351.5" width="191" height="32.5"/>
+  <object id="75" name="Terrain" x="1984.17" y="335.5" width="47.667" height="32"/>
+  <object id="77" name="Terrain" x="2063.67" y="320.5" width="47.667" height="32"/>
+  <object id="78" name="Terrain" x="2128.17" y="305" width="47.667" height="174.5"/>
+  <object id="79" name="Terrain" x="2240.17" y="289.5" width="47.667" height="92.5"/>
+  <object id="80" name="Terrain" x="2240.67" y="416.5" width="47.667" height="62.5"/>
+  <object id="81" name="Terrain" x="2352.67" y="417.75" width="47.667" height="62.5"/>
+  <object id="83" name="Terrain" x="2464" y="479.5">
    <polygon points="0,0 0,-79 -15.5,-79 -15.5,-95.5 64,-96 64,-80.5 48,-79 48,-1"/>
   </object>
-  <object id="86" name="Terrain" x="2079.67" y="369.25" width="17.167" height="15.5"/>
-  <object id="87" name="Terrain" x="2127.42" y="353.25" width="17.167" height="15.5"/>
-  <object id="88" name="Terrain" x="2175.92" y="336.75" width="17.167" height="15.5"/>
-  <object id="89" name="Terrain" x="2095.42" y="224.75" width="17.167" height="15.5"/>
-  <object id="90" name="Terrain" x="2127.42" y="256.75" width="17.167" height="15.5"/>
-  <object id="91" name="Terrain" x="2175.92" y="271.75" width="17.167" height="15.5"/>
-  <object id="93" name="Terrain" x="2143.42" y="192.75" width="17.167" height="15.5"/>
-  <object id="95" name="Terrain" x="2271" y="432.5">
+  <object id="86" name="Terrain" x="2559.67" y="369.25" width="17.167" height="108.5"/>
+  <object id="87" name="Terrain" x="2607.42" y="353.25" width="17.167" height="124.5"/>
+  <object id="88" name="Terrain" x="2655.92" y="336.75" width="17.167" height="141"/>
+  <object id="89" name="Terrain" x="2543.42" y="224.25" width="17.167" height="15.5"/>
+  <object id="90" name="Terrain" x="2591.92" y="255.25" width="17.167" height="15.5"/>
+  <object id="91" name="Terrain" x="2655.92" y="271.75" width="17.167" height="15.5"/>
+  <object id="93" name="Terrain" x="2590.92" y="175.75" width="17.167" height="15.5"/>
+  <object id="95" name="Terrain" x="2751" y="432.5">
    <polygon points="0,0 -15,-0.5 -60.5,-48 32,-49 -44,-127.5 33,-128 -78.5,-242.5 -78.5,-256 80,-256.5 80,-1"/>
   </object>
-  <object id="96" name="Terrain" x="543.5" y="338.334" width="16" height="141.333"/>
-  <object id="97" name="Terrain" x="608.5" y="322.334" width="16" height="156.833"/>
-  <object id="98" name="Terrain" x="657" y="305.334" width="16" height="173.833"/>
-  <object id="100" name="Terrain" x="2511.42" y="305.083" width="224.167" height="15.5"/>
-  <object id="101" name="Terrain" x="3104.92" y="304.25" width="95.167" height="15.5"/>
-  <object id="102" name="Finish" x="3183.42" y="193.75" width="17.167" height="110"/>
-  <object id="103" name="Ice" x="2720.42" y="288.25" width="15.167" height="15.5"/>
-  <object id="104" name="Ice" x="2752.42" y="272.25" width="15.167" height="15.5"/>
-  <object id="106" name="Ice" x="2847.42" y="288.75" width="15.167" height="15.5"/>
-  <object id="107" name="Ice" x="2912.92" y="289.25" width="15.167" height="15.5"/>
-  <object id="109" name="Ice" x="3008.78" y="288.795" width="15.167" height="15.5"/>
-  <object id="110" name="Ice" x="3056.96" y="273.341" width="15.167" height="15.5"/>
-  <object id="111" name="Terrain" x="2351.75" y="176.25">
-   <polygon points="0,0 35,0.25 35,4.75 42.25,4.75 42.25,9.75 45.75,9.75 46,12.75 47.25,13 47.75,16 51.25,16.75 51.25,19.75 57.5,20.75 58.25,23.5 61.5,25.75 63.5,29.5 63.25,32 66.25,32 67.75,35.25 73.75,35.25 74.5,42 78,42.25 80.25,46.25 83,48.25 84.25,52.5 89.5,52.5 90.75,56.5 93.25,56.5 97,64.5 99.25,65 99.75,67.75 105.25,68.5 107.25,73.25 109.75,73.5 112.25,81.25 115,80.75 116.25,84.5 121,84.75 121.75,90 126.25,89.75 128.75,100.25 138.25,100.75 138,106.75 141.25,106 144,112 146,112 147.25,116 153.25,116.25 154.75,121 157,121 159.25,127.75"/>
+  <object id="100" name="Terrain" x="2991.42" y="303.447" width="688.834" height="17.1364"/>
+  <object id="102" name="Finish" x="3662.75" y="193.75" width="17.167" height="108"/>
+  <object id="111" name="Terrain" x="2831.75" y="176.25">
+   <polygon points="0,0 35,0.25 35,4.75 42.25,4.75 42.25,9.75 45.75,9.75 46,12.75 47.25,13 47.75,16 51.25,16.75 51.25,19.75 57.5,20.75 58.25,23.5 61.5,25.75 63.5,29.5 63.25,32 66.25,32 67.75,35.25 73.75,35.25 74.5,42 78,42.25 80.25,46.25 83,48.25 84.25,52.5 89.5,52.5 90.75,56.5 93.25,56.5 97,64.5 99.25,65 99.75,67.75 105.25,68.5 107.25,73.25 109.75,73.5 112.25,81.25 115,80.75 116.25,84.5 121,84.75 121.75,90 126.25,89.75 128.75,100.25 138.5,100.75 138,106.75 142.25,106.25 144,112 146,112 147.25,116 144.688,116.813 143.219,118.219 142.25,119.25 140.25,121.25"/>
   </object>
-  <object id="112" name="Spike" x="1759" y="281.667" width="48.6667" height="6.8333"/>
-  <object id="113" name="Spike" x="1904.17" y="411.333" width="16.1667" height="5.0833"/>
-  <object id="114" name="Spike" x="1983.92" y="379.083" width="15.6667" height="4.8333"/>
-  <object id="115" name="Spike" x="2031.92" y="378.583" width="15.6667" height="5.0833"/>
-  <object id="116" name="Enemy" x="1391" y="301">
+  <object id="112" name="Spike" x="2239" y="281.667" width="48.6667" height="6.8333"/>
+  <object id="113" name="Spike" x="2384.17" y="411.333" width="16.1667" height="5.0833"/>
+  <object id="114" name="Spike" x="2463.92" y="379.083" width="15.6667" height="4.8333"/>
+  <object id="115" name="Spike" x="2511.92" y="378.583" width="15.6667" height="5.0833"/>
+  <object id="116" name="Enemy" x="1871" y="301">
    <point/>
   </object>
-  <object id="118" name="Enemy" x="845" y="232">
+  <object id="120" name="Enemy" x="1570" y="288">
    <point/>
   </object>
-  <object id="119" name="Enemy2" x="2617" y="258">
-   <point/>
-  </object>
-  <object id="120" name="Enemy" x="1090" y="288">
-   <point/>
-  </object>
-  <object id="121" name="Terrain" x="704" y="272" width="16.6663" height="31.6666"/>
-  <object id="122" name="Terrain" x="959" y="273.333" width="16.6663" height="30.1666"/>
-  <object id="123" name="Terrain" x="1312.33" y="319.75" width="16.6663" height="30.9166"/>
-  <object id="124" name="Terrain" x="1455.67" y="320.667" width="16.6663" height="30.6666"/>
-  <object id="128" name="Terrain" x="2385" y="95">
+  <object id="123" name="Terrain" x="1776.66" y="319.386" width="31.6057" height="31.2802"/>
+  <object id="124" name="Terrain" x="1935.67" y="319.485" width="31.6663" height="31.8484"/>
+  <object id="128" name="Terrain" x="2865" y="95">
    <polygon points="0,0 -177,1 -270,-95 -2,-94.5"/>
   </object>
-  <object id="129" name="Terrain" x="2384.92" y="32.25" width="495.167" height="15.5"/>
-  <object id="130" name="Terrain" x="2880.5" y="47.5">
-   <polygon points="0,0 95,95.5 141,95.5 190.5,47.5 207.5,47.5 302,145.5 319.5,145 319.5,0"/>
+  <object id="129" name="Terrain" x="2864.92" y="32.25" width="495.167" height="15.5"/>
+  <object id="130" name="Terrain" x="3360.5" y="47.5">
+   <polygon points="0,0 95,95.5 141,95.5 190.5,47.5 207.5,47.5 302,145.5 319.5,145 447,16.75"/>
   </object>
-  <object id="131" name="Player" x="64" y="292">
+  <object id="132" name="Terrain" x="1489.17" y="337.25" width="172.167" height="142.5"/>
+  <object id="133" name="Terrain" x="1489.17" y="304.417" width="31.6663" height="33.1666"/>
+  <object id="134" name="Terrain" x="1631.17" y="304.667" width="32.1663" height="32.4166"/>
+  <object id="135" name="Enemy2" x="3067.33" y="127.333">
    <point/>
   </object>
-  <object id="132" name="Terrain" x="1024.17" y="337.25" width="141.667" height="142.5"/>
-  <object id="133" name="Terrain" x="1024.17" y="307.417" width="16.6663" height="30.1666"/>
-  <object id="134" name="Terrain" x="1151.17" y="306.917" width="16.6663" height="30.1666"/>
+  <object id="136" name="Enemy2" x="3560" y="146">
+   <point/>
+  </object>
+  <object id="140" name="Terrain" x="1504.83" y="0.416667" width="141.667" height="188.833"/>
+  <object id="141" name="Terrain" x="1504" y="190.25" width="16.6663" height="30.1666"/>
+  <object id="142" name="Terrain" x="1630.67" y="190.917" width="16.6663" height="30.1666"/>
+  <object id="144" name="Terrain" x="2974.25" y="289.25" width="16.834" height="15.5"/>
+  <object id="145" name="Terrain" x="254.417" y="15.25" width="18.4997" height="462.167"/>
+  <object id="146" name="Terrain" x="305.083" y="367.917" width="141.833" height="45.5"/>
+  <object id="147" name="Player" x="358.999" y="350.75">
+   <point/>
+  </object>
+  <object id="148" name="Terrain" x="512.997" y="369.666" width="44" height="109.333"/>
+  <object id="149" name="Terrain" x="592.33" y="353.666" width="141.333" height="45.3333"/>
+  <object id="150" name="Terrain" x="799.164" y="353.666" width="16" height="125.333"/>
+  <object id="151" name="Spike" x="-159.337" y="465" width="671.334" height="14.6667"/>
+  <object id="152" name="Spike" x="558.33" y="447.666" width="240" height="32"/>
+  <object id="153" name="Spike" x="991.337" y="437.5" width="497.5" height="42.3333"/>
+  <object id="154" name="Spike" x="815.664" y="448" width="45.5" height="32"/>
+  <object id="155" name="Spike" x="879.747" y="447" width="45.5" height="32"/>
+  <object id="156" name="Spike" x="944.247" y="447.333" width="45.8333" height="32"/>
+  <object id="157" name="Terrain" x="862.497" y="338.667" width="16" height="141.333"/>
+  <object id="158" name="Terrain" x="927.497" y="322.667" width="16" height="156.833"/>
+  <object id="159" name="Terrain" x="992.663" y="305.667" width="16" height="173.833"/>
+  <object id="160" name="Terrain" x="1056.07" y="304.043" width="303.94" height="32.375"/>
+  <object id="161" name="Enemy" x="1212.01" y="234.084">
+   <point/>
+  </object>
+  <object id="162" name="Terrain" x="1056.51" y="271.994" width="31.1663" height="33.7575"/>
+  <object id="163" name="Terrain" x="1327.7" y="271.707" width="32.2913" height="33.8143"/>
+  <object id="164" name="Terrain" x="1407.52" y="304.76" width="15.6246" height="174.148"/>
  </objectgroup>
 </map>

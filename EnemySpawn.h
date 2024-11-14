@@ -20,7 +20,6 @@ public:
 	~EnemySpawn();
 
 	void spawnEnemies();
-
 	std::vector<Enemy*>& getEnemies();
 };
 

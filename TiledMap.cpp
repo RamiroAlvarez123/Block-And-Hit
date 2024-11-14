@@ -31,7 +31,7 @@ void TiledMap::loadBackground() {
 				_MontTexture.setRepeated(true);
 
 				_MontSprite.setTexture(_MontTexture);
-                _MontSprite.setTextureRect(sf::IntRect(0, 0, _MontTexture.getSize().x * 10, _MontTexture.getSize().y));
+                _MontSprite.setTextureRect(sf::IntRect(0, 0, _MontTexture.getSize().x * 20, _MontTexture.getSize().y));
 
 				_MontSprite.setPosition(imageLayer.getOffset().x, imageLayer.getOffset().y);
 			}
@@ -45,7 +45,7 @@ void TiledMap::loadBackground() {
 				_ExtTexture.setRepeated(true);
 
 				_ExtSprite.setTexture(_ExtTexture);
-                _ExtSprite.setTextureRect(sf::IntRect(0, 0, _ExtTexture.getSize().x * 6, _ExtTexture.getSize().y));
+                _ExtSprite.setTextureRect(sf::IntRect(0, 0, _ExtTexture.getSize().x * 10, _ExtTexture.getSize().y));
 				_ExtSprite.setPosition(imageLayer.getOffset().x, imageLayer.getOffset().y);
 			}
 			else if (imageLayer.getName() == "Cielo") {
@@ -73,7 +73,7 @@ void TiledMap::loadBackground() {
 
 
 				_CuevaSprite.setTexture(_CuevaTexture);
-                _CuevaSprite.setTextureRect(sf::IntRect(0, 0, _CuevaTexture.getSize().x * 5, _CuevaTexture.getSize().y));
+                _CuevaSprite.setTextureRect(sf::IntRect(0, 0, _CuevaTexture.getSize().x, _CuevaTexture.getSize().y));
 
 				_CuevaSprite.setPosition(imageLayer.getOffset().x, imageLayer.getOffset().y);
 			}

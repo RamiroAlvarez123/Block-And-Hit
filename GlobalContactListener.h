@@ -3,6 +3,7 @@
 
 class Player;
 class Enemy;
+class RedEnemy;
 class Star;
 
 class ContactListener {
@@ -15,6 +16,7 @@ enum class FixtureDataType {
 	Player,
 	GroundTile,
 	Enemy,
+	RedEnemy,
 	Spike,
 	Finish,
 };
@@ -26,6 +28,7 @@ struct FixtureData {
 	union {
 		Player* player;
 		Enemy* enemy;
+		RedEnemy* redenemy;
 		Star* star;
 	};
 };
