@@ -203,6 +203,7 @@ void Juego::setNombreJugador(std::string nombrejugador){
     _nombreJugador = nombrejugador;
 }
 std::string Juego::getNombreJugador(){return _nombreJugador;}
+int Juego::getPuntos(){ return _puntos;}
 bool Juego::getJuego(){ return _juego;}
 bool Juego::getFinish(){return _infinish;}
 bool Juego::getReintentar(){return _reintentar;}

@@ -9,6 +9,7 @@ Scene::Scene(b2World& world) : _world(world)
     _pausa = new Pausa();
     _scoreboard = new Scoreboard();
     _nombrejugador = new NombreJugador();
+    _win = new Win();
 }
 
 void Scene::update() {
@@ -19,6 +20,10 @@ void Scene::update() {
         _reintentar->open();
     }if(_juego->getFinish()){
         _juego->close();
+        _win->open();
+
+    }if(!_win->getWin()){
+        _win->close();
         _menu->open();
     }
  }
@@ -119,6 +124,9 @@ void Scene::render(sf::RenderWindow& window)
     if(_pausa->getPausa()){
         _juego->render(window);
         _pausa->render(window);
+    }
+    if(_win->getWin()){
+        _win->render(window);
     }
 }
 

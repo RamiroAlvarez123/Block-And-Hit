@@ -34,7 +34,7 @@ void Scoreboard::render(sf::RenderWindow& window){
 	}
 
 	void Scoreboard::open(){
-	 _scoreboardfile.ordenarRanking();
+	 _scoreboardfile.ordenarScoreboard();
 	_SelectOpc = -1;
 	_inScoreboard = true;
 	}

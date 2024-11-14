@@ -11,7 +11,7 @@ public:
     ScoreboardFile();
 
 	int contarRegistros();
-	void ordenarRanking();
+	void ordenarScoreboard();
 
 	bool guardarJugador(const ObjJugador &jugador);
 

@@ -9,9 +9,9 @@ ScoreboardFile::ScoreboardFile(){}
 
     bool ScoreboardFile::guardarJugador(const ObjJugador& jugador){
 	FILE *Archi1;
-	Archi1=fopen("ranking.dat","ab");
+	Archi1=fopen("scoreboard.dat","ab");
 	if(Archi1==NULL){
-        std::cout << "ERROR AL ESCRIBIR/CREAR RANKING.DAT" << std::endl;
+        std::cout << "ERROR AL ESCRIBIR/CREAR scoreboard.DAT" << std::endl;
         return false;
 	}
 bool escritura=fwrite(&jugador, sizeof(ObjJugador), 1, Archi1);
@@ -24,7 +24,7 @@ return escritura;
 	int ScoreboardFile::contarRegistros(){
 	FILE* Archi1;
 
-    Archi1 = fopen("ranking.dat", "rb");
+    Archi1 = fopen("scoreboard.dat", "rb");
     if (Archi1 == NULL) {
         return -1;
     }
@@ -39,7 +39,7 @@ return escritura;
 	ObjJugador obj;
     FILE* Archi1;
 
-    Archi1 = fopen("ranking.dat", "rb");
+    Archi1 = fopen("scoreboard.dat", "rb");
     if (Archi1 == NULL) {
         std::cout << "NO SE PUDO LEER en read player" << std::endl;
         return obj;
@@ -52,8 +52,8 @@ return escritura;
 	}
 
 
-	void ScoreboardFile::ordenarRanking() {
-    FILE* archivo = fopen("ranking.dat", "rb");
+	void ScoreboardFile::ordenarScoreboard() {
+    FILE* archivo = fopen("scoreboard.dat", "rb");
     if (!archivo) {
         std::cerr << "Error al abrir el archivo para lectura" << std::endl;
         return;
@@ -75,7 +75,7 @@ return escritura;
         jugadores.resize(10);
     }
 
-    archivo = fopen("ranking.dat", "wb");
+    archivo = fopen("scoreboard.dat", "wb");
     if (!archivo) {
         std::cerr << "Error al abrir el archivo para escritura" << std::endl;
         return;

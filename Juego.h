@@ -62,6 +62,7 @@ public:
     void respawn();
     void setNombreJugador(std::string nombrejugador);
     std::string getNombreJugador();
+    int getPuntos();
     bool getJuego();
     bool getFinish();
     bool getReintentar();

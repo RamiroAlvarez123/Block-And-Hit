@@ -33,8 +33,6 @@ void Structures::spawnObstacles()
 			const auto& objects = objectLayer.getObjects();
 			for (const auto& object : objects)
 			{
-				// Access object properties, e.g., object.getName(), object.getPosition(), etc.
-				// Use this information to spawn entities or configure the game world.
 				tmx::Object::Shape shape = object.getShape();
 
 				if (object.getName() == "Spike") {

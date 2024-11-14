@@ -6,6 +6,7 @@
 #include "Menu.h"
 #include "Pausa.h"
 #include "Scoreboard.h"
+#include "Win.h"
 #include "NombreJugador.h"
 
 class Scene {
@@ -17,6 +18,7 @@ private:
     Pausa* _pausa;
     Scoreboard* _scoreboard;
     NombreJugador* _nombrejugador;
+    Win* _win;
 
 public:
 	Scene(b2World& world);
