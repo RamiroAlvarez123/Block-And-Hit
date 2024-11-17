@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="240" height="30" tilewidth="16" tileheight="16" infinite="0" nextlayerid="11" nextobjectid="195">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="240" height="30" tilewidth="16" tileheight="16" infinite="0" nextlayerid="11" nextobjectid="196">
  <tileset firstgid="1" name="Tileset" tilewidth="16" tileheight="16" tilecount="48" columns="8">
   <image source="tiles/Tileset.png" width="128" height="96"/>
  </tileset>
@@ -23,7 +23,7 @@
   </data>
  </layer>
  <objectgroup id="6" name="Capa de Objetos 1">
-  <object id="61" name="Spike" x="1662.75" y="434.833" width="464.25" height="42.3333"/>
+  <object id="61" name="Spike" x="1662.75" y="446.833" width="464.25" height="30.3333"/>
   <object id="65" name="Spike" x="2176.58" y="447.333" width="61.5" height="32"/>
   <object id="66" name="Spike" x="2290.58" y="462.667" width="60.1667" height="15.3333"/>
   <object id="67" name="Spike" x="2400.58" y="447.333" width="60.8333" height="32"/>
@@ -83,10 +83,10 @@
   <object id="150" name="Terrain" x="799.164" y="353.666" width="16" height="125.333"/>
   <object id="151" name="Spike" x="2.663" y="465" width="509.334" height="14.6667"/>
   <object id="152" name="Spike" x="558.33" y="447.666" width="240" height="32"/>
-  <object id="153" name="Spike" x="991.337" y="437.5" width="497.5" height="42.3333"/>
-  <object id="154" name="Spike" x="815.664" y="448" width="45.5" height="32"/>
-  <object id="155" name="Spike" x="879.747" y="447" width="45.5" height="32"/>
-  <object id="156" name="Spike" x="944.247" y="447.333" width="45.8333" height="32"/>
+  <object id="153" name="Spike" x="1010.67" y="445.5" width="395.5" height="34.3333"/>
+  <object id="154" name="Spike" x="815.664" y="441.818" width="46.5909" height="38.1818"/>
+  <object id="155" name="Spike" x="879.747" y="440.333" width="47.1667" height="38.6667"/>
+  <object id="156" name="Spike" x="943.914" y="439.333" width="47.5" height="40"/>
   <object id="157" name="Terrain" x="862.497" y="338.667" width="16" height="141.333"/>
   <object id="158" name="Terrain" x="927.497" y="322.667" width="16" height="156.833"/>
   <object id="159" name="Terrain" x="992.663" y="305.667" width="16" height="173.833"/>
@@ -111,5 +111,6 @@
   <object id="194" name="Player" x="360.667" y="319.333">
    <point/>
   </object>
+  <object id="195" name="Spike" x="1425.75" y="444.667" width="61.8333" height="33.3333"/>
  </objectgroup>
 </map>

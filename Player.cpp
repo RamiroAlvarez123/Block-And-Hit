@@ -37,26 +37,13 @@ Player::Player(b2World& world, b2Vec2 position) : _startingPosition(position)
 	fixtureDef.isSensor = true;
 	_groundFixture = _body->CreateFixture(&fixtureDef);
 
-	//Enemy sensorFixture
-	b2shape.SetAsBox(0.1f, 0.4f, b2Vec2(0.50f, 0.0f), 0.0f);
-	fixtureDef.userData.pointer = (uintptr_t)&_fixtureData;
-	fixtureDef.isSensor = true;
-	_rightEnemyFixture = _body->CreateFixture(&fixtureDef);
-
-	b2shape.SetAsBox(0.1f, 0.4f, b2Vec2(-0.50f, 0.0f), 0.0f);
-	fixtureDef.userData.pointer = (uintptr_t)&_fixtureData;
-	fixtureDef.isSensor = true;
-	_leftEnemyFixture = _body->CreateFixture(&fixtureDef);
-
-	//Top Ground Fixture
 	b2shape.SetAsBox(0.4f, 0.1f, b2Vec2(-0.0f, -0.8f), 0.0f);
 	fixtureDef.userData.pointer = (uintptr_t)&_fixtureData;
 	fixtureDef.isSensor = true;
 	_topFixture = _body->CreateFixture(&fixtureDef);
 
-	// Create SFML Sprite
 	_texture.loadFromFile("imgs/knight.png");
-	_textureShield.loadFromFile("imgs/shield2.png");
+	_textureShield.loadFromFile("imgs/shield.png");
 	_sprite = new sf::Sprite();
 	_sprite->setTexture(_texture);
 	_sprite->setTextureRect({ 7, 7 , 20, 22 });
@@ -155,7 +142,7 @@ void Player::cmd()
 void Player::update()
 {
     if (_shieldActive) {
-        _shieldTimer += 0.016f;  // Asumiendo que update se llama a ~60 FPS
+        _shieldTimer += 0.026f;  // Asumiendo que update se llama a ~60 FPS
         if (_shieldTimer >= _shieldDuration) {
             deactivateShield();  // Desactiva el escudo después de la duración
             _shieldTimer = 0.0f; // Reinicia el temporizador
@@ -183,7 +170,7 @@ void Player::update()
 
 		if (_frame > 3) _frame = 0;
 
-		_sprite->setTextureRect({ 6 + int(_frame) * 33, 71, 24, 21 });
+		_sprite->setTextureRect({ 6 + int(_frame) * 33, 66, 24, 25 });
 		_sprite->setOrigin(3.0f, 8.5f);
 
 		if (_velocity.x < 0) _sprite->setScale(-1, 1);
@@ -202,7 +189,7 @@ void Player::update()
 
 	// Ajustar el fixture según la textura
     b2PolygonShape shape;
-    shape.SetAsBox((_sprite->getGlobalBounds().width / 2.0f) / pixels_per_meter, (_sprite->getGlobalBounds().height / 1.85f) / pixels_per_meter);
+    shape.SetAsBox((_sprite->getGlobalBounds().width / 2.f) / pixels_per_meter, (_sprite->getGlobalBounds().height / 1.85f) / pixels_per_meter);
     _body->DestroyFixture(_spikeFixture); // Elimina el fixture anterior
     b2FixtureDef fixtureDef;
     fixtureDef.shape = &shape;
@@ -223,6 +210,9 @@ void Player::render(sf::RenderWindow& window) {
 	window.draw(*_sprite);
 
 
+    drawFixture(_spikeFixture, window, sf::Color(255, 0, 0, 100)); // Rojo
+	drawFixture(_groundFixture, window, sf::Color(0, 255, 0, 100)); // Verde
+	drawFixture(_topFixture, window, sf::Color(255, 165, 0, 100)); // Naranja
 }
 
 void Player::drawFixture(b2Fixture* fixture, sf::RenderWindow& window, sf::Color color) {
@@ -309,7 +299,7 @@ void Player::onEndContact(b2Fixture* self, b2Fixture* other)
 void Player::activateShield() {
     if (!_shieldCooldown && !_shieldActive) {// Solo activa si el escudo no está en cooldown
             _sprite->setTexture(_textureShield);
-		_sprite->setTextureRect({ 1, 1, 16, 16 });
+		_sprite->setTextureRect({ 5, 4, 26, 19 });
         b2PolygonShape shieldShape;
         shieldShape.SetAsBox(0.3f, 0.5f, b2Vec2(0.6f, 0.0f), 0.0f);
 

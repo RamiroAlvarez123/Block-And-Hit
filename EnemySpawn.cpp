@@ -17,7 +17,6 @@ EnemySpawn::~EnemySpawn()
 void EnemySpawn::spawnEnemies()
 {
 
-	// Returns a reference to the vector containing the layer data.
 	const auto& layers = _tiled.getLayers();
 	for (const auto& layer : layers)
 	{

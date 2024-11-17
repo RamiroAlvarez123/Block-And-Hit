@@ -48,10 +48,6 @@
 			<Add directory="SFML-2.6.1/lib" />
 			<Add directory="box2d-2.4.2/lib" />
 		</Linker>
-		<Unit filename="ArchivoLogin.cpp" />
-		<Unit filename="ArchivoLogin.h">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
 		<Unit filename="Enemy.cpp" />
 		<Unit filename="Enemy.h" />
 		<Unit filename="EnemySpawn.cpp" />
@@ -75,6 +71,10 @@
 		<Unit filename="Pausa.h" />
 		<Unit filename="Player.cpp" />
 		<Unit filename="Player.h" />
+		<Unit filename="RedEnemy.cpp" />
+		<Unit filename="RedEnemy.h" />
+		<Unit filename="RedEnemySpawn.cpp" />
+		<Unit filename="RedEnemySpawn.h" />
 		<Unit filename="Reintentar.cpp" />
 		<Unit filename="Reintentar.h" />
 		<Unit filename="Scene.cpp" />
@@ -91,10 +91,8 @@
 		<Unit filename="Terrain.h" />
 		<Unit filename="TiledMap.cpp" />
 		<Unit filename="TiledMap.h" />
-		<Unit filename="Usuario.cpp" />
-		<Unit filename="Usuario.h">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
+		<Unit filename="Win.cpp" />
+		<Unit filename="Win.h" />
 		<Unit filename="constants.h" />
 		<Unit filename="jugar.h" />
 		<Unit filename="main.cpp" />

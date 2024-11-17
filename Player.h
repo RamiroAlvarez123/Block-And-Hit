@@ -63,8 +63,6 @@ private:
 	b2Fixture* _groundFixture;
 	b2Fixture* _spikeFixture;
 	b2Fixture* _finishFixture;
-	b2Fixture* _rightEnemyFixture;
-	b2Fixture* _leftEnemyFixture;
 	b2Fixture* _topFixture;
 public:
 	Player(b2World& world, b2Vec2 position);
