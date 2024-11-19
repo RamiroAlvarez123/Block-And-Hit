@@ -20,6 +20,8 @@ private:
 	sf::Texture _textureShield;
 	sf::Sprite* _sprite;
 	sf::SoundBuffer _buffer;
+	sf::SoundBuffer _buffer2;
+	sf::Sound _jumpS;
 	sf::Sound _sound;
 	sf::Clock clock;
 	sf::Time cooldownWalk = sf::seconds(0.3f);
@@ -41,7 +43,7 @@ private:
     bool _isBlocking = false;
     bool _shieldActive = false;
     bool _shieldCooldown = false;
-    float _shieldCooldownTime = 3.0f;
+    float _shieldCooldownTime = 2.0f;
     float _shieldTimer = 0.0f;
     float _shieldDuration = 2.0f;
 

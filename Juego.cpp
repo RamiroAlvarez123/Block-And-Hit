@@ -78,11 +78,12 @@ void Juego::update(){
 
         _lifes--;
         if(_lifes < 1){
+            _buffer.loadFromFile("sounds/lose.wav");
+            _sound.setBuffer(_buffer);
+            _sound.play();
             _reintentar = true;
         }
     }
-
-
 
     if(_player->inFinish()){
         _buffer.loadFromFile("sounds/victory.wav");

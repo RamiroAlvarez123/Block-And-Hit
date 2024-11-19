@@ -39,11 +39,11 @@ RedEnemy::RedEnemy(b2World& world, b2Vec2 position)
     _sprite->setScale(-1, 1);
 
     _body->GetUserData().pointer = reinterpret_cast<uintptr_t>(_sprite);
+
 }
 
 RedEnemy::~RedEnemy()
 {
-    //_body->GetWorld()->DestroyBody(_body);
     if (_body) {
         _body->GetWorld()->DestroyBody(_body);
         _body = nullptr;
@@ -58,31 +58,38 @@ void RedEnemy::update()
         _frame = 0;
     }
 
-    _sprite->setTextureRect({ 0 + (int)_frame * 51, 31, 17, 18 });
-
-    _velocity = _body->GetLinearVelocity();
-
-    if (std::abs(_velocity.x) <= 0.02f) {
-        _moveSpeed *= -1.0f;
+    // Actualiza el sprite de animación solo si el enemigo no ha sido golpeado
+    if (!_isHit) {
+        _sprite->setTextureRect({ 0 + (int)_frame * 51, 31, 17, 18 });
     }
 
-    if (_velocity.x < 0) {
-        _sprite->setScale(-1, 1);
+    // Si el enemigo no está marcado como "muerto", continúa su movimiento
+    if (!_isDead) {
+        _velocity = _body->GetLinearVelocity();
+
+        if (std::abs(_velocity.x) <= 0.02f) {
+            _moveSpeed *= -1.0f;
+        }
+
+        if (_velocity.x < 0) {
+            _sprite->setScale(-1, 1);
+        } else if (_velocity.x > 0) {
+            _sprite->setScale(1, 1);
+        }
+
+        _velocity.x = _moveSpeed;
+        _body->SetLinearVelocity(_velocity);
     }
-    else if (_velocity.x > 0) {
-        _sprite->setScale(1, 1);
-    }
 
-    _velocity.x = _moveSpeed;
-
-    _body->SetLinearVelocity(_velocity);
-
-
+    // Si el enemigo es golpeado, inicia el temporizador de muerte y actualiza su sprite
     if (_isHit) {
+
+        _buffer.loadFromFile("sounds/hit.wav");
+        _sound.setBuffer(_buffer);
+        _sound.play();
+
         _deathTimer += 0.07f;
         _sprite->setTextureRect({ 50, 59, 18, 12 });
-
-        _sprite->setOrigin(_sprite->getGlobalBounds().width / 2.0f, _sprite->getGlobalBounds().height * -1.0f);
 
         if (_deathTimer >= 1) {
             //body->SetTransform(b2Vec2(_body->GetPosition().x, 1000.0f / pixels_per_meter), _body->GetAngle());
@@ -104,17 +111,19 @@ void RedEnemy::onBeginContact(b2Fixture* self, b2Fixture* other)
 {
     FixtureData* data = (FixtureData*)other->GetUserData().pointer;
 
-    if(data->type == FixtureDataType::Player) {
-        _isHit = true;
+    // Detecta si el fixture con el que colisiona es el escudo del jugador
+    if (data->type == FixtureDataType::Player) {
+        _isHit = true;  // Marca al enemigo como golpeado
+
         // Obtiene la posición del escudo (otro objeto)
         b2Vec2 shieldPosition = other->GetBody()->GetPosition();
-        b2Vec2 enemyPosition = _body->GetPosition();
+        b2Vec2 RedEnemyPosition = _body->GetPosition();
 
         // Aplica un impulso para simular el empuje por el escudo
         b2Vec2 pushForce;
 
         // Determina la dirección del empuje en función de la posición relativa
-        if (shieldPosition.x < enemyPosition.x) { // El escudo está a la izquierda
+        if (shieldPosition.x < RedEnemyPosition.x) { // El escudo está a la izquierda
             pushForce.Set(10.0f, 0.0f);
         } else { // El escudo está a la derecha
             pushForce.Set(-10.0f, 0.0f);
@@ -123,7 +132,6 @@ void RedEnemy::onBeginContact(b2Fixture* self, b2Fixture* other)
         _body->ApplyLinearImpulseToCenter(pushForce, true);
     }
 }
-
 void RedEnemy::onEndContact(b2Fixture* self, b2Fixture* other)
 {
     FixtureData* data = (FixtureData*)other->GetUserData().pointer;

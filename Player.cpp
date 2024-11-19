@@ -28,6 +28,7 @@ Player::Player(b2World& world, b2Vec2 position) : _startingPosition(position)
 	fixtureDef.userData.pointer = (uintptr_t)&_fixtureData;
 	_spikeFixture = _body->CreateFixture(&fixtureDef);
 
+
 	// Attach Shape to Body
 	_body->CreateFixture(&fixtureDef);
 
@@ -80,28 +81,33 @@ if(!_shieldActive){
 	}
 	if (!_didJump) {
 		if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Up))&& _onGround) {
+            _buffer.loadFromFile("sounds/jump.wav");
+			_jumpS.setBuffer(_buffer);
+			_jumpS.play();
 			_didJump = true;
 			_isJumping = true;
 			isMoving = true;
-			_velocity.y += -20.0f;
+			_velocity.y += -17.0f;
 			_sprite->setTextureRect({ 6, 71, 23, 20 });
 			_state = PlayerState::Jump;
 		}
 	}
 
 }
+
+if(_shieldTimer <= 0.8f && !_didJump){
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
 		_state = PlayerState::Defend;
 		isMoving = true;
 	}
-
+}
 
 
 	if (_didJump) {
 
-		if (_velocity.y > -28.0f && _isJumping) {
+		if (_velocity.y > -25.0f && _isJumping) {
 			_velocity.y += -1.0f;
-			if (_velocity.y <= -28.0f) {
+			if (_velocity.y <= -25.0f) {
 				_isJumping = false;
 				_isFalling = true;
 				isMoving = true;
@@ -134,14 +140,6 @@ if(!_shieldActive){
 		_state = PlayerState::Idle;
 	}
 
-	if(isMoving && _onGround){
-        _buffer.loadFromFile("sounds/walk.wav");
-        _sound.setBuffer(_buffer);
-    if (clock.getElapsedTime() >= cooldownWalk) {
-        _sound.play();
-        clock.restart();
-        }
-	}
 }
 
 void Player::update()
@@ -155,8 +153,10 @@ void Player::update()
     }
 
     if (_shieldCooldown) {
+
         _shieldTimer += 0.016f;  // Asumiendo que update se llama a ~60 FPS
         if (_shieldTimer >= _shieldCooldownTime) {
+
             _shieldCooldown = false;  // Finaliza el cooldown
             _shieldTimer = 0.0f;      // Reinicia el temporizador
             std::cout << "Escudo listo para ser activado nuevamente." << std::endl;
@@ -213,23 +213,8 @@ void Player::render(sf::RenderWindow& window) {
 	_sprite->setPosition(_body->GetPosition().x * pixels_per_meter, _body->GetPosition().y * pixels_per_meter);
 	_sprite->setRotation(_body->GetAngle() * deg_per_rad);
 	window.draw(*_sprite);
-
-
-    drawFixture(_spikeFixture, window, sf::Color(255, 0, 0, 100)); // Rojo
-	drawFixture(_groundFixture, window, sf::Color(0, 255, 0, 100)); // Verde
-	drawFixture(_topFixture, window, sf::Color(255, 165, 0, 100)); // Naranja
 }
 
-void Player::drawFixture(b2Fixture* fixture, sf::RenderWindow& window, sf::Color color) {
-	b2PolygonShape* shape = static_cast<b2PolygonShape*>(fixture->GetShape());
-	b2Vec2 position = _body->GetPosition();
-	sf::RectangleShape fixtureShape;
-	fixtureShape.setSize(sf::Vector2f((shape->m_vertices[1].x - shape->m_vertices[0].x) * pixels_per_meter, (shape->m_vertices[2].y - shape->m_vertices[1].y) * pixels_per_meter));
-	fixtureShape.setOrigin(fixtureShape.getSize().x / 2, fixtureShape.getSize().y / 2);
-	fixtureShape.setPosition((position.x + shape->m_centroid.x) * pixels_per_meter, (position.y + shape->m_centroid.y) * pixels_per_meter);
-	fixtureShape.setFillColor(color);
-	window.draw(fixtureShape);
-}
 
 sf::Vector2f Player::getPosition() {
 	b2Vec2 pos = _body->GetPosition();
@@ -243,17 +228,7 @@ void Player::onBeginContact(b2Fixture* self, b2Fixture* other)
 	if (!data) {
 		return;
 	}
-	   if (_shieldFixture != nullptr && self == _shieldFixture && data->type == FixtureDataType::Enemy && _state == PlayerState::Defend) {
-        b2Body* enemyBody = other->GetBody();
 
-        // Calcular el empuje en función de la orientación del sprite
-        float pushForceX = (_sprite->getScale().x > 0) ? 10.0f : -10.0f;
-        b2Vec2 pushForce(pushForceX, 0.0f);
-
-
-        // Aplicar impulso al enemigo en la dirección correcta
-        enemyBody->ApplyLinearImpulseToCenter(pushForce, true);
-    }
 	if (_spikeFixture == self && data->type == FixtureDataType::Spike) {
 		_death = true;
 	}
@@ -269,6 +244,7 @@ void Player::onBeginContact(b2Fixture* self, b2Fixture* other)
     if ((data->type == FixtureDataType::Enemy || data->type == FixtureDataType::RedEnemy) && (_state != PlayerState::Defend || _shieldFixture == nullptr)) {
         _death = true;
     }
+
      if (_sprite->getPosition().y >= 430){
         _death = true;
         }
@@ -289,10 +265,23 @@ void Player::onEndContact(b2Fixture* self, b2Fixture* other)
 		_onGround = false;
 	}
 
+	if (_shieldFixture != nullptr && self == _shieldFixture && data->type == FixtureDataType::Enemy && _state == PlayerState::Defend) {
+        b2Body* enemyBody = other->GetBody();
+
+        // Calcular el empuje en función de la orientación del sprite
+        float pushForceX = (_sprite->getScale().x > 0) ? 10.0f : -10.0f;
+        b2Vec2 pushForce(pushForceX, 0.0f);
+
+
+        // Aplicar impulso al enemigo en la dirección correcta
+        enemyBody->ApplyLinearImpulseToCenter(pushForce, true);
+    }
+
 }
 
 void Player::activateShield() {
     if (!_shieldCooldown && !_shieldActive) {// Solo activa si el escudo no está en cooldown
+
         _sprite->setTexture(_textureShield);
 		_sprite->setTextureRect({ 5, 4, 26, 19 });
         b2PolygonShape shieldShape;
@@ -317,6 +306,9 @@ void Player::activateShield() {
 }
 
 void Player::deactivateShield() {
+    _buffer2.loadFromFile("sounds/charging.wav");
+    _sound.setBuffer(_buffer2);
+    _sound.play();
     if (_shieldFixture != nullptr) {
         //std::cout << "Desactivando escudo" << std::endl;
         _body->DestroyFixture(_shieldFixture);

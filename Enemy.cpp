@@ -40,7 +40,6 @@ Enemy::Enemy(b2World& world, b2Vec2 position)
 
     _body->GetUserData().pointer = reinterpret_cast<uintptr_t>(_sprite);
 
-
 }
 
 Enemy::~Enemy()
@@ -85,7 +84,7 @@ void Enemy::update()
     // Si el enemigo es golpeado, inicia el temporizador de muerte y actualiza su sprite
     if (_isHit) {
 
-    _buffer.loadFromFile("sounds/hit.wav");
+        _buffer.loadFromFile("sounds/hit.wav");
         _sound.setBuffer(_buffer);
         _sound.play();
 
@@ -121,7 +120,7 @@ void Enemy::onBeginContact(b2Fixture* self, b2Fixture* other)
     FixtureData* data = (FixtureData*)other->GetUserData().pointer;
 
     // Detecta si el fixture con el que colisiona es el escudo del jugador
-    if (data && data->type == FixtureDataType::PlayerShield) {
+    if (data->type == FixtureDataType::Player) {
         _isHit = true;  // Marca al enemigo como golpeado
 
         // Obtiene la posición del escudo (otro objeto)
@@ -144,7 +143,6 @@ void Enemy::onBeginContact(b2Fixture* self, b2Fixture* other)
 void Enemy::onEndContact(b2Fixture* self, b2Fixture* other)
 {
     FixtureData* data = (FixtureData*)other->GetUserData().pointer;
-    // Puedes añadir más lógica aquí si necesitas detectar cuándo termina una colisión
 }
 
 bool Enemy::isDead() {
