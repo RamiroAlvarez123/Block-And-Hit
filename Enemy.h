@@ -1,11 +1,16 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include <box2d/box2d.h>
 #include "constants.h"
 #include "GlobalContactListener.h"
 class Enemy : public ContactListener
 {
 private:
+
+    sf::SoundBuffer _buffer;
+	sf::Sound _sound;
+
 	sf::Texture _texture;
 	sf::Sprite* _sprite;
 	b2Body* _body;

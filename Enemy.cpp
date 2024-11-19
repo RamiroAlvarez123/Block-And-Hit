@@ -39,6 +39,8 @@ Enemy::Enemy(b2World& world, b2Vec2 position)
     _sprite->setScale(-1, 1);
 
     _body->GetUserData().pointer = reinterpret_cast<uintptr_t>(_sprite);
+
+
 }
 
 Enemy::~Enemy()
@@ -82,7 +84,10 @@ void Enemy::update()
 
     // Si el enemigo es golpeado, inicia el temporizador de muerte y actualiza su sprite
     if (_isHit) {
-    //std::cout << std::endl << "Vidas del bichito: " << vidas << std::endl;
+
+    _buffer.loadFromFile("sounds/hit.wav");
+        _sound.setBuffer(_buffer);
+        _sound.play();
 
     if (vidas > 0) {
         vidas -= 1;  // Reduce las vidas

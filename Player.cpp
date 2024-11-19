@@ -32,7 +32,7 @@ Player::Player(b2World& world, b2Vec2 position) : _startingPosition(position)
 	_body->CreateFixture(&fixtureDef);
 
 	// Sensor de colisiones para que no se ejecute el salto en bordes de paredes
-	b2shape.SetAsBox(0.4f, 0.2f, b2Vec2(0.0f, 1.0f), 0.0f);
+	b2shape.SetAsBox(0.3f, 0.2f, b2Vec2(0.0f, 1.0f), 0.0f);
 	fixtureDef.userData.pointer = (uintptr_t)&_fixtureData;
 	fixtureDef.isSensor = true;
 	_groundFixture = _body->CreateFixture(&fixtureDef);
@@ -63,6 +63,9 @@ void Player::cmd()
 {
 	bool isMoving = false;
 
+
+if(!_shieldActive){
+
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
 		_velocity.x = _moveSpeed;
 		_state = PlayerState::Move;
@@ -75,12 +78,6 @@ void Player::cmd()
 
 		isMoving = true;
 	}
-
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
-		_state = PlayerState::Defend;
-		isMoving = true;
-	}
-
 	if (!_didJump) {
 		if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Up))&& _onGround) {
 			_didJump = true;
@@ -91,6 +88,14 @@ void Player::cmd()
 			_state = PlayerState::Jump;
 		}
 	}
+
+}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
+		_state = PlayerState::Defend;
+		isMoving = true;
+	}
+
+
 
 	if (_didJump) {
 
@@ -178,7 +183,7 @@ void Player::update()
 		//deactivateShield();
 		break;
 
-		case PlayerState::Defend:
+    case PlayerState::Defend:
 		if (_velocity.x < 0) _sprite->setScale(-1, 1);
 		else if (_velocity.x > 0) _sprite->setScale(1, 1);
 		activateShield();
@@ -245,6 +250,7 @@ void Player::onBeginContact(b2Fixture* self, b2Fixture* other)
         float pushForceX = (_sprite->getScale().x > 0) ? 10.0f : -10.0f;
         b2Vec2 pushForce(pushForceX, 0.0f);
 
+
         // Aplicar impulso al enemigo en la dirección correcta
         enemyBody->ApplyLinearImpulseToCenter(pushForce, true);
     }
@@ -282,23 +288,12 @@ void Player::onEndContact(b2Fixture* self, b2Fixture* other)
 	else if (_groundFixture == self && (data->type == FixtureDataType::GroundTile)) {
 		_onGround = false;
 	}
-	else if(_isBlocking && (data->type == FixtureDataType::Enemy)){
-        _buffer.loadFromFile("sounds/hit.wav");
-        _sound.setBuffer(_buffer);
-        _sound.play();
 
-	}
-	else if(_isBlocking && (data->type == FixtureDataType::RedEnemy)){
-        _buffer.loadFromFile("sounds/hit.wav");
-        _sound.setBuffer(_buffer);
-        _sound.play();
-
-	}
 }
 
 void Player::activateShield() {
     if (!_shieldCooldown && !_shieldActive) {// Solo activa si el escudo no está en cooldown
-            _sprite->setTexture(_textureShield);
+        _sprite->setTexture(_textureShield);
 		_sprite->setTextureRect({ 5, 4, 26, 19 });
         b2PolygonShape shieldShape;
         shieldShape.SetAsBox(0.3f, 0.5f, b2Vec2(0.6f, 0.0f), 0.0f);

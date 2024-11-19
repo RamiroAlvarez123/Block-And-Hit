@@ -2092,7 +2092,7 @@
 	"constants.h"
 	"GlobalContactListener.h"
 
-1731807728 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\player.cpp
+1731973201 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\player.cpp
 	"Player.h"
 	<iostream>
 
@@ -2113,12 +2113,13 @@
 1731364383 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\reintentar.cpp
 	"Reintentar.h"
 
-1731580855 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\enemy.cpp
+1731973201 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\enemy.cpp
 	"Enemy.h"
 	<iostream>
 
-1731580855 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\enemy.h
+1731970463 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\enemy.h
 	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
 	<box2d/box2d.h>
 	"constants.h"
 	"GlobalContactListener.h"
