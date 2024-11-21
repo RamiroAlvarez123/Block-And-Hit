@@ -82,7 +82,6 @@ public:
 
 	void cmd();
 
-	void drawFixture(b2Fixture* fixture, sf::RenderWindow& window, sf::Color color);
 	bool isDead();
 	bool inFinish();
 	virtual void onBeginContact(b2Fixture* self, b2Fixture* other) override;

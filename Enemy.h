@@ -37,7 +37,6 @@ public:
 	~Enemy();
 
 	void update();
-
 	void render(sf::RenderWindow& window);
 
 	bool isDead();

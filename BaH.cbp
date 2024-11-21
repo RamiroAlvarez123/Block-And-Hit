@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="BaH" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/Juego 2048" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add directory="include" />
+					<Add directory="../Juego-2048" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/Juego 2048" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add directory="include" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+			<Add directory="SFML-2.6.1/include" />
+			<Add directory="tmxlite/tmxlite/include" />
+			<Add directory="box2d-2.4.2/include" />
+		</Compiler>
+		<Linker>
+			<Add library="sfml-system" />
+			<Add library="sfml-window" />
+			<Add library="sfml-graphics" />
+			<Add library="box2d" />
+			<Add library="sfml-audio" />
+			<Add library="sfml-network" />
+			<Add directory="SFML-2.6.1/lib" />
+			<Add directory="box2d-2.4.2/lib" />
+		</Linker>
+		<Unit filename="Enemy.cpp" />
+		<Unit filename="Enemy.h" />
+		<Unit filename="EnemySpawn.cpp" />
+		<Unit filename="EnemySpawn.h" />
+		<Unit filename="Finish.cpp" />
+		<Unit filename="Finish.h" />
+		<Unit filename="GlobalContactListener.cpp" />
+		<Unit filename="GlobalContactListener.h" />
+		<Unit filename="Juego 2048.cbp" />
+		<Unit filename="Juego.cpp" />
+		<Unit filename="Juego.h" />
+		<Unit filename="Menu.cpp" />
+		<Unit filename="Menu.h" />
+		<Unit filename="NombreJugador.cpp" />
+		<Unit filename="NombreJugador.h" />
+		<Unit filename="ObjJugador.cpp" />
+		<Unit filename="ObjJugador.h" />
+		<Unit filename="Obstacle.cpp" />
+		<Unit filename="Obstacle.h" />
+		<Unit filename="Pausa.cpp" />
+		<Unit filename="Pausa.h" />
+		<Unit filename="Player.cpp" />
+		<Unit filename="Player.h" />
+		<Unit filename="RedEnemy.cpp" />
+		<Unit filename="RedEnemy.h" />
+		<Unit filename="RedEnemySpawn.cpp" />
+		<Unit filename="RedEnemySpawn.h" />
+		<Unit filename="Reintentar.cpp" />
+		<Unit filename="Reintentar.h" />
+		<Unit filename="Scene.cpp" />
+		<Unit filename="Scene.h" />
+		<Unit filename="SceneManager.cpp" />
+		<Unit filename="SceneManager.h" />
+		<Unit filename="Scoreboard.cpp" />
+		<Unit filename="Scoreboard.h" />
+		<Unit filename="ScoreboardFile.cpp" />
+		<Unit filename="ScoreboardFile.h" />
+		<Unit filename="Structures.cpp" />
+		<Unit filename="Structures.h" />
+		<Unit filename="Terrain.cpp" />
+		<Unit filename="Terrain.h" />
+		<Unit filename="TiledMap.cpp" />
+		<Unit filename="TiledMap.h" />
+		<Unit filename="Win.cpp" />
+		<Unit filename="Win.h" />
+		<Unit filename="constants.h" />
+		<Unit filename="jugar.h" />
+		<Unit filename="main.cpp" />
+		<Unit filename="tmxlite/tmxlite/src/FreeFuncs.cpp" />
+		<Unit filename="tmxlite/tmxlite/src/ImageLayer.cpp" />
+		<Unit filename="tmxlite/tmxlite/src/LayerGroup.cpp" />
+		<Unit filename="tmxlite/tmxlite/src/Map.cpp" />
+		<Unit filename="tmxlite/tmxlite/src/Object.cpp" />
+		<Unit filename="tmxlite/tmxlite/src/ObjectGroup.cpp" />
+		<Unit filename="tmxlite/tmxlite/src/ObjectTypes.cpp" />
+		<Unit filename="tmxlite/tmxlite/src/Property.cpp" />
+		<Unit filename="tmxlite/tmxlite/src/TileLayer.cpp" />
+		<Unit filename="tmxlite/tmxlite/src/Tileset.cpp" />
+		<Unit filename="tmxlite/tmxlite/src/detail/pugiconfig.hpp" />
+		<Unit filename="tmxlite/tmxlite/src/detail/pugixml.cpp" />
+		<Unit filename="tmxlite/tmxlite/src/detail/pugixml.hpp" />
+		<Unit filename="tmxlite/tmxlite/src/miniz.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="tmxlite/tmxlite/src/miniz.h" />
+		<Extensions>
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

@@ -59,10 +59,8 @@ void NombreJugador::render(sf::RenderWindow& window)
     nombreJugadorText.setFillColor(sf::Color::White);
     nombreJugadorText.setOutlineThickness(2);
     nombreJugadorText.setOutlineColor(sf::Color::Black);
-    nombreJugadorText.setString(_nombrejugador); // Usamos _nombrejugador para mostrar el nombre actual
-    // Calcula el ancho del texto del nombre del jugador
+    nombreJugadorText.setString(_nombrejugador);
     sf::FloatRect nombreJugadorRect = nombreJugadorText.getLocalBounds();
-    // Ajusta la posici�n x para centrar el texto
     nombreJugadorText.setPosition(centerPosition.x - nombreJugadorRect.width / 2 -20, centerPosition.y - nombreJugadorRect.height / 2 - 5);
     window.draw(nombreJugadorText);
 }

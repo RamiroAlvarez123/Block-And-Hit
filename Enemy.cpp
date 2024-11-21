@@ -9,7 +9,7 @@ Enemy::Enemy(b2World& world, b2Vec2 position)
 
     // Define Body
     b2BodyDef bodyDef;
-    bodyDef.position.Set((position.x + _width / 2.0f) / pixels_per_meter, (position.y + _height / 2.0f) / pixels_per_meter);
+    bodyDef.position.Set((position.x + _width / 2.0f) / pixels_per_meter, (position.y + _height / 1.8f) / pixels_per_meter);
     bodyDef.type = b2_dynamicBody;
     bodyDef.fixedRotation = true;
 
