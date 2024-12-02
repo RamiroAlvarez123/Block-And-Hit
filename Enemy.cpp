@@ -2,7 +2,7 @@
 #include <iostream>
 
 Enemy::Enemy(b2World& world, b2Vec2 position)
-{
+: BaseEnemy(world, position, 6.0f, 4.0f, 2.0f){
     _fixtureData.listener = this;
     _fixtureData.enemy = this;
     _fixtureData.type = FixtureDataType::Enemy;
@@ -108,13 +108,6 @@ void Enemy::update()
 }
 }
 
-void Enemy::render(sf::RenderWindow& window)
-{
-    _sprite->setPosition(_body->GetPosition().x * pixels_per_meter, _body->GetPosition().y * pixels_per_meter);
-    _sprite->setRotation(_body->GetAngle() * deg_per_rad);
-    window.draw(*_sprite);
-}
-
 void Enemy::onBeginContact(b2Fixture* self, b2Fixture* other)
 {
     FixtureData* data = (FixtureData*)other->GetUserData().pointer;
@@ -143,8 +136,4 @@ void Enemy::onBeginContact(b2Fixture* self, b2Fixture* other)
 void Enemy::onEndContact(b2Fixture* self, b2Fixture* other)
 {
     FixtureData* data = (FixtureData*)other->GetUserData().pointer;
-}
-
-bool Enemy::isDead() {
-    return _isDead;
 }

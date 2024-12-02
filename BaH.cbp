@@ -94,6 +94,8 @@
 		<Unit filename="Win.cpp" />
 		<Unit filename="Win.h" />
 		<Unit filename="constants.h" />
+		<Unit filename="entities.cpp" />
+		<Unit filename="entities.h" />
 		<Unit filename="jugar.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="tmxlite/tmxlite/src/FreeFuncs.cpp" />

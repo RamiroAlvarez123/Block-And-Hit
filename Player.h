@@ -72,12 +72,9 @@ public:
 	~Player();
 
 	sf::Vector2f getPosition();
-
 	void update();
-    // Métodos para activar y desactivar el escudo
     void activateShield();
     void deactivateShield();
-    //
 	void render(sf::RenderWindow& window);
 
 	void cmd();

@@ -2,7 +2,7 @@
 #include <iostream>
 
 RedEnemy::RedEnemy(b2World& world, b2Vec2 position)
-{
+ : BaseEnemy(world, position, 18.0f, 10.0f, 5.0f){
     _fixtureData.listener = this;
     _fixtureData.redenemy = this;
     _fixtureData.type = FixtureDataType::RedEnemy;
@@ -42,9 +42,8 @@ RedEnemy::RedEnemy(b2World& world, b2Vec2 position)
 
 }
 
-RedEnemy::~RedEnemy()
-{
-    if (_body) {
+RedEnemy::~RedEnemy(){
+if (_body) {
         _body->GetWorld()->DestroyBody(_body);
         _body = nullptr;
     }
@@ -100,13 +99,6 @@ void RedEnemy::update()
     }
 }
 
-void RedEnemy::render(sf::RenderWindow& window)
-{
-    _sprite->setPosition(_body->GetPosition().x * pixels_per_meter, _body->GetPosition().y * pixels_per_meter);
-    _sprite->setRotation(_body->GetAngle() * deg_per_rad);
-    window.draw(*_sprite);
-}
-
 void RedEnemy::onBeginContact(b2Fixture* self, b2Fixture* other)
 {
     FixtureData* data = (FixtureData*)other->GetUserData().pointer;
@@ -137,6 +129,4 @@ void RedEnemy::onEndContact(b2Fixture* self, b2Fixture* other)
     FixtureData* data = (FixtureData*)other->GetUserData().pointer;
 }
 
-bool RedEnemy::isDead() {
-    return _isDead;
-}
+
