@@ -2,7 +2,7 @@
 #include <iostream>
 
 RedEnemy::RedEnemy(b2World& world, b2Vec2 position)
- : BaseEnemy(world, position, 18.0f, 10.0f, 5.0f){
+ : Entities(world, position, 18.0f, 10.0f, 5.0f){
     _fixtureData.listener = this;
     _fixtureData.redenemy = this;
     _fixtureData.type = FixtureDataType::RedEnemy;

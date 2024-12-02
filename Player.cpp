@@ -1,8 +1,7 @@
 #include "Player.h"
 #include <iostream>
 
-Player::Player(b2World& world, b2Vec2 position) : _startingPosition(position)
-{
+Player::Player(b2World& world, b2Vec2 position) : _startingPosition(position), Entities(world, position, 3.0f, 32.0f, 10.0f){
 	_fixtureData.listener = this;
 	_fixtureData.player = this;
 	_fixtureData.type = FixtureDataType::Player;
@@ -209,12 +208,6 @@ void Player::update()
 
 }
 
-void Player::render(sf::RenderWindow& window) {
-	_sprite->setPosition(_body->GetPosition().x * pixels_per_meter, _body->GetPosition().y * pixels_per_meter);
-	_sprite->setRotation(_body->GetAngle() * deg_per_rad);
-	window.draw(*_sprite);
-}
-
 
 sf::Vector2f Player::getPosition() {
 	b2Vec2 pos = _body->GetPosition();
@@ -230,7 +223,7 @@ void Player::onBeginContact(b2Fixture* self, b2Fixture* other)
 	}
 
 	if (_spikeFixture == self && data->type == FixtureDataType::Spike) {
-		_death = true;
+		_isDead = true;
 	}
 	if (data->type == FixtureDataType::Finish) {
 		_finished = true;
@@ -242,11 +235,11 @@ void Player::onBeginContact(b2Fixture* self, b2Fixture* other)
 		_onRoof = true;
 	}
     if ((data->type == FixtureDataType::Enemy || data->type == FixtureDataType::RedEnemy) && (_state != PlayerState::Defend || _shieldFixture == nullptr)) {
-        _death = true;
+        _isDead = true;
     }
 
      if (_sprite->getPosition().y >= 430){
-        _death = true;
+        _isDead = true;
         }
 }
 
@@ -319,7 +312,7 @@ void Player::deactivateShield() {
 
 
 bool Player::isDead() {
-	return _death;
+	return _isDead;
 }
 
 bool Player::inFinish(){

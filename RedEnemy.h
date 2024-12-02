@@ -1,7 +1,7 @@
 #pragma once
 #include "entities.h"
 
-class RedEnemy : public BaseEnemy {
+class RedEnemy : public Entities {
 public:
     RedEnemy(b2World& world, b2Vec2 position);
     ~RedEnemy();

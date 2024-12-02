@@ -5,7 +5,7 @@
 #include "constants.h"
 #include "GlobalContactListener.h"
 #include "entities.h"
-class Enemy : public BaseEnemy
+class Enemy : public Entities
 {
 private:
 	int vidas=2;

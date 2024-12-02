@@ -1,9 +1,9 @@
 # depslib dependency file v1.0
-1733154624 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\enemy.cpp
+1733169391 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\enemy.cpp
 	"Enemy.h"
 	<iostream>
 
-1733161199 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\enemy.h
+1733169391 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\enemy.h
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	<box2d/box2d.h>
@@ -876,12 +876,13 @@
 	<vector>
 	<tmxlite/ObjectGroup.hpp>
 
-1733101078 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\player.h
+1733173245 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\player.h
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	<box2d/box2d.h>
 	"constants.h"
 	"GlobalContactListener.h"
+	"entities.h"
 
 1733112639 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\redenemyspawn.h
 	<vector>
@@ -892,7 +893,7 @@
 	<tmxlite/TileLayer.hpp>
 	<tmxlite/ObjectGroup.hpp>
 
-1733161199 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\redenemy.h
+1733169391 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\redenemy.h
 	"entities.h"
 
 1731563139 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\scoreboardfile.h
@@ -970,11 +971,11 @@
 	<SFML/Graphics.hpp>
 	"Pausa.h"
 
-1732059307 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\player.cpp
+1733173245 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\player.cpp
 	"Player.h"
 	<iostream>
 
-1733112723 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\redenemy.cpp
+1733169391 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\redenemy.cpp
 	"RedEnemy.h"
 	<iostream>
 
@@ -1190,13 +1191,13 @@
 1731577377 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\win.cpp
 	"Win.h"
 
-1733161233 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\entities.h
+1733173659 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\entities.h
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	<box2d/box2d.h>
 	"constants.h"
 	"GlobalContactListener.h"
 
-1733112723 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\entities.cpp
+1733169391 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\entities.cpp
 	"entities.h"
 
