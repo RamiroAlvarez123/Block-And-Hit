@@ -21,14 +21,14 @@ protected:
     b2Vec2 _velocity;
     float _moveSpeed;
 
-    float _stateTime;
-    float _frame;
+    float _stateTime = 0.0f;
+    float _frame = 0.0f;
 
     FixtureData _fixtureData;
 
-    bool _isHit;
-    bool _isDead;
-    float _deathTimer;
+    bool _isHit = false;
+    bool _isDead = false;
+    float _deathTimer = 0.0f;
 
 public:
     Entities(b2World& world, b2Vec2 position, float width, float height, float moveSpeed);

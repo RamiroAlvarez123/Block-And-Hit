@@ -26,7 +26,7 @@ Juego::Juego(b2World& world) : _world(world)
 }
 Juego::~Juego()
 {
-	delete _tiledMap;
+    delete _tiledMap;
 	delete _structures;
 	delete _player;
 	delete _enemySpawn;

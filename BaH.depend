@@ -813,11 +813,11 @@
 1721413167 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\globalcontactlistener.cpp
 	"GlobalContactListener.h"
 
-1733112517 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\juego.cpp
+1733865663 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\juego.cpp
 	"Juego.h"
 	<iostream>
 
-1731563337 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\juego.h
+1733865558 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\juego.h
 	"TiledMap.h"
 	"Structures.h"
 	"Player.h"
@@ -915,7 +915,7 @@
 	"Scene.h"
 	"Menu.h"
 
-1731576263 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\scene.h
+1733855005 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\scene.h
 	<SFML/Graphics.hpp>
 	<Box2D/Box2D.h>
 	"Juego.h"
@@ -971,7 +971,7 @@
 	<SFML/Graphics.hpp>
 	"Pausa.h"
 
-1733173245 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\player.cpp
+1733622951 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\player.cpp
 	"Player.h"
 	<iostream>
 
@@ -985,7 +985,7 @@
 1731364383 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\reintentar.cpp
 	"Reintentar.h"
 
-1731577100 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\scene.cpp
+1733855109 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\scene.cpp
 	"Scene.h"
 	<iostream>
 
@@ -996,7 +996,7 @@
 	<iostream>
 	"Scoreboard.h"
 
-1731563139 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\scoreboardfile.cpp
+1733755932 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\scoreboardfile.cpp
 	<iostream>
 	"ScoreboardFile.h"
 	<vector>
@@ -1191,13 +1191,13 @@
 1731577377 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\win.cpp
 	"Win.h"
 
-1733173659 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\entities.h
+1733845513 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\entities.h
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	<box2d/box2d.h>
 	"constants.h"
 	"GlobalContactListener.h"
 
-1733169391 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\entities.cpp
+1733845680 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\entities.cpp
 	"entities.h"
 

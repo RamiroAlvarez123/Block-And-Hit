@@ -13,12 +13,12 @@ class Scene {
 private:
 	b2World& _world;
 	Juego* _juego;
-	Reintentar* _reintentar;
-    Menu* _menu;
-    Pausa* _pausa;
-    Scoreboard* _scoreboard;
-    NombreJugador* _nombrejugador;
-    Win* _win;
+	Reintentar _reintentar;
+    Menu _menu;
+    Pausa _pausa;
+    Scoreboard _scoreboard;
+    NombreJugador _nombrejugador;
+    Win _win;
     bool _music = true;
 public:
 	Scene(b2World& world);

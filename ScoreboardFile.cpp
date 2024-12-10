@@ -66,7 +66,7 @@ return escritura;
     }
     fclose(archivo);
 
-    std::sort(jugadores.begin(), jugadores.end(), [](const ObjJugador& a, const ObjJugador& b) {
+    std::sort(jugadores.begin(), jugadores.end(), [](const ObjJugador a, const ObjJugador b) {
         return a.getPuntos() > b.getPuntos() ||
               (a.getPuntos() == b.getPuntos() && a.getNombreJugador() < b.getNombreJugador());
     });
