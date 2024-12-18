@@ -4,7 +4,6 @@
 class Player;
 class Enemy;
 class RedEnemy;
-class Star;
 
 class ContactListener {
 public:
@@ -30,7 +29,6 @@ struct FixtureData {
 		Player* player;
 		Enemy* enemy;
 		RedEnemy* redenemy;
-		Star* star;
 	};
 };
 

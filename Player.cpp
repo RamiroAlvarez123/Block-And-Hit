@@ -1,7 +1,7 @@
 #include "Player.h"
 #include <iostream>
 
-Player::Player(b2World& world, b2Vec2 position) : Entities(world, position, 3.0f, 32.0f, 10.0f){
+Player::Player(b2World& world, b2Vec2 position) : Entities(3.0f, 32.0f, 10.0f){
 	_fixtureData.listener = this;
 	_fixtureData.player = this;
 	_fixtureData.type = FixtureDataType::Player;

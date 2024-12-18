@@ -2,7 +2,7 @@
 #include <iostream>
 
 Enemy::Enemy(b2World& world, b2Vec2 position)
-: Entities(world, position, 6.0f, 4.0f, 2.0f){
+: Entities(6.0f, 4.0f, 2.0f){
     _fixtureData.listener = this;
     _fixtureData.enemy = this;
     _fixtureData.type = FixtureDataType::Enemy;

@@ -1,6 +1,6 @@
 #include "entities.h"
 
-Entities::Entities(b2World& world, b2Vec2 position, float width, float height, float moveSpeed)
+Entities::Entities(float width, float height, float moveSpeed)
     : _width(width), _height(height), _moveSpeed(moveSpeed),
       _velocity(0.0f, 0.0f){
 

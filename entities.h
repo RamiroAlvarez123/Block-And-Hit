@@ -31,7 +31,7 @@ protected:
     float _deathTimer = 0.0f;
 
 public:
-    Entities(b2World& world, b2Vec2 position, float width, float height, float moveSpeed);
+    Entities(float width, float height, float moveSpeed);
     virtual ~Entities();
 
     virtual void update() = 0;

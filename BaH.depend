@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1733169391 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\enemy.cpp
+1733960422 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\enemy.cpp
 	"Enemy.h"
 	<iostream>
 
@@ -724,13 +724,13 @@
 
 1721413167 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\constants.h
 
-1731580882 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\globalcontactlistener.h
+1733960494 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\globalcontactlistener.h
 	<box2d/box2d.h>
 
-1731587457 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\enemyspawn.cpp
+1733929487 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\enemyspawn.cpp
 	"EnemySpawn.h"
 
-1731537822 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\enemyspawn.h
+1733929487 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\enemyspawn.h
 	<vector>
 	<box2d/box2d.h>
 	"Enemy.h"
@@ -813,11 +813,11 @@
 1721413167 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\globalcontactlistener.cpp
 	"GlobalContactListener.h"
 
-1733865663 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\juego.cpp
+1734003489 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\juego.cpp
 	"Juego.h"
 	<iostream>
 
-1733865558 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\juego.h
+1734003044 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\juego.h
 	"TiledMap.h"
 	"Structures.h"
 	"Player.h"
@@ -896,7 +896,7 @@
 1733169391 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\redenemy.h
 	"entities.h"
 
-1731563139 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\scoreboardfile.h
+1733923764 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\scoreboardfile.h
 	<iostream>
 	"ObjJugador.h"
 	<SFML/Graphics.hpp>
@@ -951,7 +951,7 @@
 1731453544 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\nombrejugador.h
 	<SFML/Graphics.hpp>
 
-1732155918 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\menu.cpp
+1733960327 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\menu.cpp
 	<iostream>
 	"Menu.h"
 
@@ -971,11 +971,11 @@
 	<SFML/Graphics.hpp>
 	"Pausa.h"
 
-1733622951 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\player.cpp
+1733960433 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\player.cpp
 	"Player.h"
 	<iostream>
 
-1733169391 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\redenemy.cpp
+1733960422 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\redenemy.cpp
 	"RedEnemy.h"
 	<iostream>
 
@@ -985,7 +985,7 @@
 1731364383 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\reintentar.cpp
 	"Reintentar.h"
 
-1733855109 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\scene.cpp
+1734002560 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\scene.cpp
 	"Scene.h"
 	<iostream>
 
@@ -996,7 +996,7 @@
 	<iostream>
 	"Scoreboard.h"
 
-1733755932 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\scoreboardfile.cpp
+1733923764 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\scoreboardfile.cpp
 	<iostream>
 	"ScoreboardFile.h"
 	<vector>
@@ -1191,13 +1191,13 @@
 1731577377 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\win.cpp
 	"Win.h"
 
-1733845513 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\entities.h
+1733960422 c:\users\ramiro alvarez\onedrive\escritorio\block and hit\entities.h
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	<box2d/box2d.h>
 	"constants.h"
 	"GlobalContactListener.h"
 
-1733845680 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\entities.cpp
+1733960422 source:c:\users\ramiro alvarez\onedrive\escritorio\block and hit\entities.cpp
 	"entities.h"
 
